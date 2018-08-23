@@ -1,0 +1,45 @@
+.landing-page {
+	display: flex;
+	height: 70%;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+.main-logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 1;
+}
+.main-logo a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #999;
+}
+.main-logo a:hover {
+	color: black;
+}
+#logo img {
+	width:50%;
+}
+.text-sub-logo {
+	padding-top: 1em;
+	display: flex;
+	align-items:  center;
+	justify-content: center;
+	font-size: 2em;
+	opacity: 0;
+}
+.lang {
+	opacity: 0;
+	font-size: 1.20em;
+}
+@keyframes logo {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+#logo {
+	animation-name: logo;
+	animation-duration: 3s;
+}

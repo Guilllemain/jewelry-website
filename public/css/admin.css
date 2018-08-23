@@ -1,0 +1,19 @@
+.img_table {
+  max-width: 150px;
+  max-height: 100px;
+}
+
+.button_table {
+  margin-bottom: 7px;
+}
+
+.field img {
+  max-width: 90px;
+  max-height: 90px;
+}
+
+.navbar-laravel {
+  background-color: #e6e6e6e6 !important;
+  margin-bottom: 30px;
+}
+

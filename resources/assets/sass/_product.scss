@@ -1,0 +1,131 @@
+.item-image {
+    width: 100%
+}
+.item-description {
+    padding-top: 50px;
+    padding-right: 50px;
+}
+.item-features {
+    // font-weight: 300;
+    // font-style: oblique;
+    padding-bottom: 0.1em;
+}
+.item-features p {
+  line-height: 10px;
+}
+.item-description h1 {
+    font-size: 2em;
+    font-weight: 700;
+    padding-bottom: 0.5em;
+}
+.item-explication {
+  padding-top: 0.5em;
+}
+
+.img-magnifier-container {
+  position: relative;
+  padding-bottom: 50px;
+}
+
+.img-magnifier-glass {
+  position: absolute;
+  border: 2px solid #999;
+  border-radius: 50%;
+  cursor: none;
+  /*Set the size of the magnifier glass:*/
+  width: 200px;
+  height: 200px;
+  opacity: 0
+}
+.img-magnifier-container:hover .img-magnifier-glass {
+    opacity: 1;
+}
+
+.main-img {
+  display: none;
+}
+
+.main-img img {
+  width: 100%;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  margin-top: -50px;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: -14px;
+  border-radius: 3px 0 0 3px;
+}
+.prev {
+  left: -15px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  color: black !important;
+  transform: scale(1.5);
+}
+
+/* Container for image text */
+/*.caption-container {
+  color: #999;
+  text-align: center;
+  padding: 2px 16px;
+  }*/
+
+/* Six columns side by side */
+.thumbnails {
+  width: 16%;
+  padding-top: 16%;
+  position: relative;
+  border: solid 1px #d2d2d2;
+  display: flex;
+  margin-right: 1%;
+  align-items: center;
+}
+
+.thumbnails:hover {
+  transform: scale(1.05);
+}
+
+.thumbnails-row {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.thumbnail-img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  opacity: 0.6;
+}
+
+.thumbnail-border {
+  border: solid 1px #999;
+}
+
+.thumbnail-active,
+.thumbnail-img:hover {
+  opacity: 1;
+}

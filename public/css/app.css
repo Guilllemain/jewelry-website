@@ -1,0 +1,466 @@
+.landing-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 70%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.main-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  opacity: 1;
+}
+
+.main-logo a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #999;
+}
+
+.main-logo a:hover {
+  color: black;
+}
+
+#logo img {
+  width: 50%;
+}
+
+.text-sub-logo {
+  padding-top: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 2em;
+  opacity: 0;
+}
+
+.lang {
+  opacity: 0;
+  font-size: 1.20em;
+}
+
+@-webkit-keyframes logo {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes logo {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+#logo {
+  -webkit-animation-name: logo;
+          animation-name: logo;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+}
+
+@font-face {
+  font-family: "Gill";
+  src: url("/font/170912085356Gill.woff") format("woff");
+}
+
+.menu {
+  padding: 1.5em 0 3em 0;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 1.1em;
+}
+
+.menu li {
+  font-family: Gill;
+  text-transform: uppercase;
+  margin-bottom: 0.25em;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #999;
+}
+
+.menu a:hover {
+  color: black;
+}
+
+.logo {
+  padding-bottom: 1.5em;
+}
+
+#slider img {
+  max-width: 85%;
+  margin: auto;
+}
+
+hr {
+  width: 50%;
+  text-align: left;
+  margin-left: 0;
+}
+
+.intro p {
+  font-size: 0.9em;
+  line-height: 1.7em;
+  text-align: justify;
+}
+
+.carousel-control-prev {
+  padding-left: 20px;
+}
+
+.carousel-control-next {
+  padding-right: 20px;
+}
+
+.gallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.gallery-item {
+  padding: 0 20px 20px 20px;
+}
+
+.gallery a {
+  text-decoration: none;
+}
+
+.gallery-item img {
+  border: solid 1px #999;
+  position: absolute;
+  width: 300px;
+  height: 300px;
+}
+
+.text-wrapper {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  color: #fff;
+  opacity: 0;
+}
+
+.text-wrapper:hover {
+  -webkit-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 1;
+}
+
+.name {
+  font-size: 1.5em;
+}
+
+.item-image {
+  width: 100%;
+}
+
+.item-description {
+  padding-top: 50px;
+  padding-right: 50px;
+}
+
+.item-features {
+  padding-bottom: 0.1em;
+}
+
+.item-features p {
+  line-height: 10px;
+}
+
+.item-description h1 {
+  font-size: 2em;
+  font-weight: 700;
+  padding-bottom: 0.5em;
+}
+
+.item-explication {
+  padding-top: 0.5em;
+}
+
+.img-magnifier-container {
+  position: relative;
+  padding-bottom: 50px;
+}
+
+.img-magnifier-glass {
+  position: absolute;
+  border: 2px solid #999;
+  border-radius: 50%;
+  cursor: none;
+  /*Set the size of the magnifier glass:*/
+  width: 200px;
+  height: 200px;
+  opacity: 0;
+}
+
+.img-magnifier-container:hover .img-magnifier-glass {
+  opacity: 1;
+}
+
+.main-img {
+  display: none;
+}
+
+.main-img img {
+  width: 100%;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  margin-top: -50px;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+
+.next {
+  right: -14px;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev {
+  left: -15px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+
+.prev:hover,
+.next:hover {
+  color: black !important;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+}
+
+/* Container for image text */
+
+/*.caption-container {
+  color: #999;
+  text-align: center;
+  padding: 2px 16px;
+  }*/
+
+/* Six columns side by side */
+
+.thumbnails {
+  width: 16%;
+  padding-top: 16%;
+  position: relative;
+  border: solid 1px #d2d2d2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 1%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.thumbnails:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.thumbnails-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+}
+
+.thumbnail-img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  opacity: 0.6;
+}
+
+.thumbnail-border {
+  border: solid 1px #999;
+}
+
+.thumbnail-active,
+.thumbnail-img:hover {
+  opacity: 1;
+}
+
+.partner-gallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.img-gallery-partner {
+  width: 20%;
+}
+
+.img-gallery-partner img {
+  width: 100%;
+}
+
+.contact-map {
+  border: 1px solid #999;
+}
+
+.contact-info {
+  line-height: 0.8em;
+}
+
+.contact-form {
+  padding-right: 50px;
+}
+
+.contact-form h2 {
+  padding-bottom: 20px;
+}
+
+.contact-form button {
+  background-color: #999;
+  border: none;
+}
+
+.contact-form button:hover {
+  background-color: #4d4d4d;
+}
+
+footer {
+  margin-top: auto;
+  width: 100%;
+  height: 40px;
+  background-color: #f4f4f4;
+  padding-left: 45px;
+  /*text-align: center;*/
+  line-height: 40px;
+  vertical-align: middle;
+  font-size: 0.8em;
+}
+
+footer p {
+  margin: 0;
+}
+
+@font-face {
+  font-family: "Gill";
+  src: url("/font/170912085356Gill.woff") format("woff");
+}
+
+html,
+body {
+  color: #636b6f;
+  font-family: 'Gill', sans-serif;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: #b1b1b1;
+}
+
+.main {
+  margin: 0 20px 20px 20px;
+}
+

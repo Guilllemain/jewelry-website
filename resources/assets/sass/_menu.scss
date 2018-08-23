@@ -1,0 +1,28 @@
+@font-face {
+    font-family: "Gill";
+    src: url("/font/170912085356Gill.woff") format('woff');
+}
+
+.menu {
+    padding: 1.5em 0 3em 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.1em;
+}
+.menu li {
+    font-family: Gill;
+    text-transform: uppercase;
+    margin-bottom: 0.25em;
+}
+.menu li a {
+    text-decoration: none;
+    color: #999;
+}
+.menu a:hover {
+    color: black;
+}
+.logo {
+    padding-bottom: 1.5em;
+}

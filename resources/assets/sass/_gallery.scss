@@ -1,0 +1,36 @@
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;    
+}
+.gallery-item {
+    padding: 0 20px 20px 20px;
+}
+.gallery a {
+    text-decoration: none;
+}
+.gallery-item img {
+  border: solid 1px #999;
+  position: absolute;
+  width: 300px;
+  height: 300px;
+}
+.text-wrapper {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  opacity: 0;
+}
+.text-wrapper:hover {
+  transition: all 0.8s ease;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 1;
+}
+.name {
+  font-size: 1.5em;
+}

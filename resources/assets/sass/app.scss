@@ -1,0 +1,34 @@
+@import 'welcome';
+@import 'menu';
+@import 'home';
+@import 'gallery';
+@import 'product';
+@import 'partner';
+@import 'contact';
+@import 'footer';
+
+@font-face {
+    font-family: "Gill";
+    src: url("/font/170912085356Gill.woff") format('woff');
+}
+
+html, body {
+    color: #636b6f;
+    font-family: 'Gill', sans-serif;
+    height:100%;
+    margin:0;
+}
+body {
+    display: flex;
+    flex-direction:column; 
+}
+a {
+	color: black;
+}
+a:hover {
+	color: #b1b1b1;
+}
+.main {
+    margin: 0 20px 20px 20px;
+}
+

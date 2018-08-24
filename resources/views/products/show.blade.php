@@ -18,7 +18,7 @@
     <div class="col-md-5">
       @foreach($product->images as $image)
         <div class="main-img">
-            <img class="zoom" data-magnify-src="{{ $image->img_url }}" src="{{ $image->img_url }}">
+            <img class="zoom" data-magnify-src="{{ asset($image->img_url) }}" src="{{ asset($image->img_url) }}">
         </div>
       @endforeach
 
@@ -34,7 +34,7 @@
         <div class="thumbnails-row">
           @foreach($product->images as $number => $image)
             <div class="thumbnails">
-              <img class="thumbnail-img cursor" src="{{ $image->img_url }}" onclick="currentSlide({{ $number+1 }})" alt="{{ $product->name }}">
+              <img class="thumbnail-img cursor" src="{{ asset($image->img_url) }}" onclick="currentSlide({{ $number+1 }})" alt="{{ $product->name }}">
             </div>
           @endforeach
         </div>
@@ -48,7 +48,10 @@
     <script src="{{ asset('js/magnify-mobile.js') }}"></script>
     <script>
         $(document).ready(function() {
-          $('.zoom').magnify();
+          $('.zoom').magnify({
+            magnifiedWidth: 1000,
+            magnifiedHeight: 1000
+          });
         });
     </script>
     <script>

@@ -7,6 +7,7 @@ use App\Http\Requests\ProductRequest;
 use App\ImageProduct;
 use App\Product;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class CreationController extends Controller
 {
@@ -24,11 +25,21 @@ class CreationController extends Controller
 
     public function store(ProductRequest $request)
     {
+        $file = $request->file('thumbnail');
+        $filename = $file->hashName();
+        $path = "storage/products/thumbnails/{$filename}";
+        $img = Image::make($file)->resize(300, 300)->save(public_path($path));
+
+        // $resize = Image::make($file)->resize(300, 300)->encode('jpg');
+        // $hash = md5($resize->__toString());
+        // $resize->save(public_path($path));
+        // $url = "/" . $path;
+
         $product = Product::create([
             'name' => $request->name,
             'features' => $request->features,
             'description' => $request->description,
-            'thumbnail' => $request->file('thumbnail')->store('products/thumbnails', 'public')
+            'thumbnail' => $path
         ]);
 
         $this->product_images($request, $product);

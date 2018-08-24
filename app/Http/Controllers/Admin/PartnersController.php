@@ -54,12 +54,16 @@ class PartnersController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'video_embed' => $request->video_embed ?: '',
-            'logo' => $request->logo ?: $partner->logo,
+            'logo' => $request->logo ? $request->logo->store('partners/' . str_replace(' ', '_', strtolower($request->name)) . '/logo', 'public') : $partner->logo,
         ]);
 
-        if ($request->video_local) {
+        if ($request->partner_video) {
             $partner->update([
-                'video_local' => $request->video_local
+                'video_local' => $request->partner_video->storeAs(
+                                    'partners/' . str_replace(' ', '_', strtolower($request->name)) . '/video',
+                                    $request->file('partner_video')->getClientOriginalName(),
+                                    'public'
+                )
             ]);
         }
 

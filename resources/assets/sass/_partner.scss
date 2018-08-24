@@ -8,3 +8,12 @@
 .img-gallery-partner img {
 	width: 100%;
 }
+.partnership {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.link-partner {
+	padding: 20px 30px 40px 30px;
+}

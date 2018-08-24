@@ -65,7 +65,10 @@
 				</div>
 			</div>
 			@foreach($product->images as $image)
-				<img class="img_thumbnail" src="{{ asset($image->img_url) }}">
+				<div class="img-wrap" id="image-{{ $image->id }}">
+					<span class="close" onclick="deleteImage({{$image->id}})">&times;</span>
+					<img class="img_thumbnail" src="{{ asset($image->img_url) }}">
+				</div>
 			@endforeach
 		</div>
 		<div class="field">
@@ -77,6 +80,18 @@
 @endsection
 
 @section('javascript')
+	<script src="{{ asset('js/app.js') }}"></script>
+	<script>
+		function deleteImage(id) {
+			axios.delete('/admin/creation/image/' + id)
+			.then((response) => {
+				let imageDiv = document.getElementById("image-" + id);
+				imageDiv.parentNode.removeChild(imageDiv);               
+            },(error) => {
+              console.log(error)
+            });
+		}
+	</script>
 	<script src="//cdn.ckeditor.com/4.10.0/basic/ckeditor.js"></script>
 	<script>
 		CKEDITOR.replace('description');

@@ -14,7 +14,7 @@
 		  	<div class="control">
 				<div class="file has-name">
 				  <label class="file-label">
-				    <input id="logo" class="file-input" type="file" name="logo" required>
+				    <input id="logo" class="file-input" type="file" name="logo">
 				    <span class="file-cta">
 				      <span class="file-icon">
 				        <i class="fas fa-upload"></i>

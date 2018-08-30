@@ -7,7 +7,7 @@
 
 @section('content')
 	<div class="row">
-		<div class="col-md-5 offset-1">
+		<div class="col-md-5 offset-1 partner-show">
 			<h2>{{ $partner->title }}</h2>
 			<hr>
 			<div>{!! $partner->description !!}</div>
@@ -34,7 +34,7 @@
 			<div id="responsive" class="partner-gallery">
 				@foreach($partner->images as $image)
 					<a class="img-gallery-partner" href="{{ asset($image->img_url) }}" data-lity>
-						<img src="{{ asset($image->img_url) }}">
+						<img src="{{ asset($image->img_thumbnail) }}">
 					</a>
 				@endforeach
 			</div>
@@ -54,7 +54,7 @@
 		        controls: false,
 		        slideMove: 2,
 		        easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
-		        speed:600,
+		        speed: 600,
 		        responsive : [
 		            {
 		                breakpoint:800,

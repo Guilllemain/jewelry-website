@@ -43,10 +43,23 @@
 
 .main-img {
   display: none;
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+  margin-right: 1%;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  align-items: center;
 }
 
-.main-img img {
+.main-img img, .thumbnail-img {
   width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
 }
 
 /* Add a pointer when hovering over the thumbnail images */
@@ -61,7 +74,6 @@
   position: absolute;
   top: 40%;
   width: auto;
-  margin-top: -50px;
   font-size: 20px;
   border-radius: 0 3px 3px 0;
 }
@@ -91,12 +103,14 @@
 
 /* Six columns side by side */
 .thumbnails {
-  width: 16%;
-  padding-top: 16%;
+  width: 15%;
+  padding-top: 15%;
   position: relative;
   border: solid 1px #d2d2d2;
   display: flex;
   margin-right: 1%;
+  margin-bottom: 1%;
+  margin-top: 1%;
   align-items: center;
 }
 
@@ -108,16 +122,10 @@
   display: flex;
   align-items: center;
   justify-content: start;
+  flex-wrap: wrap;
 }
 
 .thumbnail-img {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  margin: auto;
   opacity: 0.6;
 }
 
@@ -128,4 +136,9 @@
 .thumbnail-active,
 .thumbnail-img:hover {
   opacity: 1;
+}
+
+.item-description hr, .partner-show hr {
+    width: 50%;
+    margin-left: 0;
 }

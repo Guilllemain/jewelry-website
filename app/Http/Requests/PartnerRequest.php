@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProductRequest extends FormRequest
+class PartnerRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +24,11 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:255',
-            'features' => 'required',
+            'name' => 'required',
+            'title' => 'required',
             'description' => 'required',
-            'thumbnail' => 'required|image|mimes:jpeg,jpg,png',
-            'product_img' => 'required',
-            'product_img.*' => 'image|mimes:jpeg,jpg,png'
+            'logo' => 'image|mimes:jpeg,jpg,png',
+            'video_local' => 'file|mimetypes:video/avi,video/mpeg,video/mp4',
         ];
     }
 
@@ -37,10 +36,8 @@ class ProductRequest extends FormRequest
     {
         return [
             'name.required' => 'Un nom est obligatoire',
-            'features.required'  => 'Des caractéristiques sont obligatoires',
+            'title.required'  => 'Un titre est obligatoire',
             'description.required'  => 'Une description est obligatoire',
-            'thumbnail.required'  => 'Une vignette est obligatoire au format JPG ou PNG',
-            'product_img.required'  => 'Une image minimum est obligatoire au format JPg ou PNG',
         ];
     }
 }

@@ -47,8 +47,10 @@ class InboxMessage extends Notification
                     ->subject(config('admin.name') . ' tu as un nouveau message')
                     ->greeting('Salut !')
                     ->line('Ci-dessous le message reçu :')
-                    ->from($this->request->email, $this->request->name)
-                    ->line($this->request->message);
+                    ->line('Email : ' . $this->request->email)
+                    ->line('Nom : ' . $this->request->name)
+                    ->line('Message : ' . $this->request->message)
+                    ->salutation('A bientôt');
     }
 
     /**

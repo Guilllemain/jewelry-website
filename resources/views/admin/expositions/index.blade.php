@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-	<a href="/admin/creation/create" class="button is-primary is-focused mb-4">Ajouter une création</a>
+	<a href="/admin/expositions/create" class="button is-primary is-focused mb-4">Ajouter une exposition</a>
 	<table class="table">
 	  <thead>
 	    <tr>
@@ -12,14 +12,14 @@
 	    </tr>
 	  </thead>
 	  <tbody>
-	  	@foreach($products as $product)
+	  	@foreach($expositions as $exposition)
 		    <tr>
-		      <td>{{ $product->id }}</td>
-		      <td>{{ $product->name }}</td>
-		      <td>{!! str_limit($product->description, 100) !!}</td>
+		      <td>{{ $exposition->id }}</td>
+		      <td>{{ $exposition->name }}</td>
+		      <td>{!! str_limit($exposition->description, 100) !!}</td>
 		      <td>
-		      	<a class="button is-info is-outlined button_table" href="/admin/creation/edit/{{ $product->id }}">Modifier</a>
-		      	<form method="POST" action="/admin/creation/{{ $product->id }}">
+		      	<a class="button is-info is-outlined button_table" href="/admin/expositions/edit/{{ $exposition->id }}">Modifier</a>
+		      	<form method="POST" action="/admin/expositions/{{ $exposition->id }}">
 		      		@csrf
 		      		@method('DELETE')
 		      		<button type="submit" id="delete" class="button is-danger is-outlined">
@@ -31,7 +31,7 @@
 		      	</form>
 		      </td>
 		    </tr>
-		    @endforeach
+		@endforeach
 	  </tbody>
 	</table>
 @endsection

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateImagePartnersTable extends Migration
+class CreateExpositionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateImagePartnersTable extends Migration
      */
     public function up()
     {
-        Schema::create('image_partners', function (Blueprint $table) {
+        Schema::create('expositions', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->integer('partner_id')->unsigned();
-            $table->foreign('partner_id')->references('id')->on('partners')->onDelete('cascade');
-
-            $table->string('img_thumbnail');
-            $table->string('img_url');
+            $table->string('name');
+            $table->string('title');
+            $table->string('image');
+            $table->text('description');
+            $table->string('link')->nullable();
+            $table->date('date_start');
+            $table->date('date_end');
             $table->timestamps();
         });
     }
@@ -32,6 +33,6 @@ class CreateImagePartnersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('image_partners');
+        Schema::dropIfExists('expositions');
     }
 }

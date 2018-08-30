@@ -7,24 +7,24 @@
 		<div class="field">
 		  <label class="label">Nom</label>
 		  <div class="control">
-		    <input name="name" class="input" type="text" value="{{ $product->name }}">
+		    <input name="name" class="input" type="text" value="{{ $product->name }}" required>
 		  </div>
 		</div>
 		<div class="field">
 		  	<label class="label">Caractéristiques</label>
 		  	<div class="control">
-				<textarea name="features" class="textarea" rows="3">{{ $product->features }}</textarea>
+				<textarea name="features" class="textarea" rows="3" required>{{ $product->features }}</textarea>
 			</div>
 		</div>
 		<div class="field">
 		  	<label class="label">Description</label>
 		  	<div class="control">
-				<textarea name="description" class="textarea" rows="10">{{ $product->description }}</textarea>
+				<textarea name="description" class="textarea" rows="10" required>{{ $product->description }}</textarea>
 			</div>
 		</div>
 		<div class="field">
 		  	<label class="label">Vignette</label>
-		  	<p class="help">Taille obligatoire : 300 x 300 px</p>
+		  	<p class="help">Taille minimum : 600 x 600 px</p>
 		  	<div class="control">
 				<div class="file has-name">
 				  <label class="file-label">
@@ -46,7 +46,6 @@
 		</div>
 		<div class="field">
 		  	<label class="label">Images</label>
-		  	<p class="help">5 images maximum</p>
 		  	<div class="control">
 				<div class="file has-name">
 				  <label class="file-label">
@@ -94,8 +93,12 @@
 	</script>
 	<script src="//cdn.ckeditor.com/4.10.0/basic/ckeditor.js"></script>
 	<script>
-		CKEDITOR.replace('description');
-		CKEDITOR.replace('features');
+		CKEDITOR.replace('description', {
+			height: 300
+		});
+		CKEDITOR.replace('features', {
+			height: 100
+		});
 	</script>
 	<script>
 		let file = document.getElementById("thumbnail");

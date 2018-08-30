@@ -7,6 +7,7 @@ use App\Http\Requests\ProductRequest;
 use App\ImageProduct;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
 class CreationController extends Controller
@@ -25,11 +26,6 @@ class CreationController extends Controller
 
     public function store(ProductRequest $request)
     {
-        $file = $request->file('thumbnail');
-        $filename = $file->hashName();
-        $path = "storage/products/thumbnails/{$filename}";
-        $img = Image::make($file)->resize(300, 300)->save(public_path($path));
-
         // $resize = Image::make($file)->resize(300, 300)->encode('jpg');
         // $hash = md5($resize->__toString());
         // $resize->save(public_path($path));
@@ -39,7 +35,7 @@ class CreationController extends Controller
             'name' => $request->name,
             'features' => $request->features,
             'description' => $request->description,
-            'thumbnail' => $path
+            'thumbnail' => resize_file($request, 'products/thumbnails', 600, 600)
         ]);
 
         $this->product_images($request, $product);
@@ -54,6 +50,12 @@ class CreationController extends Controller
 
     public function update(Product $product, Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'features' => 'required',
+            'description' => 'required',
+        ]);
+
         $product->update([
             'name' => $request->name,
             'features' => $request->features,
@@ -61,13 +63,15 @@ class CreationController extends Controller
         ]);
 
         if ($request->thumbnail) {
+            Storage::disk('public')->delete($product->thumbnail);
             $product->update([
-                'thumbnail' => $request->file('thumbnail')->store('products/thumbnails', 'public')
+                'thumbnail' => resize_file($request, "products/thumbnails", 600, 600)
             ]);
         }
 
         if ($request->product_img) {
             foreach ($product->images as $image) {
+                Storage::disk('public')->delete($image->img_url);
                 $image->delete();
             }
             $this->product_images($request, $product);
@@ -78,6 +82,12 @@ class CreationController extends Controller
 
     public function destroy(Product $product)
     {
+        Storage::disk('public')->delete($product->thumbnail);
+        foreach ($product->images as $image) {
+            Storage::disk('public')->delete($image->img_url);
+            Storage::disk('public')->delete($image->img_thumbnail);
+        }
+
         $product->delete();
 
         return redirect('/admin/creation')->with('message', 'Ta création a bien été supprimée');
@@ -88,7 +98,8 @@ class CreationController extends Controller
         foreach ($request->product_img as $image) {
             ImageProduct::create([
                 'product_id' => $product->id,
-                'img_url' => $image->store('products/images', 'public')
+                'img_url' => resize_file($image, 'products/images', 1200, 1200),
+                'img_thumbnail' => resize_file($image, 'products/images/thumbnails', 200, 200)
             ]);
         }
     }

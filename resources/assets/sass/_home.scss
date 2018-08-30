@@ -8,10 +8,12 @@
     max-width: 85%;
     margin: auto;
 }
-hr {
-    width: 50%;
-    text-align: left;
-    margin-left: 0
+.intro {
+    padding-top: 30px;
+}
+.intro hr {
+    width: 80%;
+    text-align: center;
 }
 .intro p {
     font-size: 0.9em;

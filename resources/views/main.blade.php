@@ -9,7 +9,7 @@
             <hr>
         </div> --}}
         <div class="col-md-12">
-          <img style="width: 100%" src="/image/image4.jpg">
+          <img style="width: 100%" src="{{ asset('images/image4.jpg') }}">
             {{-- <div id="slider" class="carousel slide carousel-fade" data-ride="carousel">
                 <ul class="carousel-indicators">
                    <li data-target="#slider" data-slide-to="0" class="active"></li>
@@ -36,6 +36,12 @@
                 <span class="sr-only">Next</span>
               </a>
             </div> --}}
+          <div class="col-md-8 offset-2 intro">
+            <hr>
+            <p>Issu d’une famille d’artistes, <a href="/portrait"><b>Karl Mazlo</b></a> se passionne très tôt pour les métiers d’art. Il est diplômé de l’<a href="http://www.ecole-boulle.org/page/histoire-de-lecole">Ecole Boulle</a> en Art du bijou et du joyau. Il se forme auprès de grands joailliers où il acquiert une multitude de techniques traditionnelles. <br>
+            Karl sculpte des pièces uniques où il conjugue l’abstrait et le figuratif afin de laisser place à l’imaginaire. Ces précieuses miniatures qu’il façonne entièrement à la main, offrent un voyage au coeur de la matière.</p>
+            <hr>
+        </div>
         </div>
     </div>
 @endsection

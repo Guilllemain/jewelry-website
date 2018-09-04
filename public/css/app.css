@@ -101,9 +101,15 @@
   src: url("/font/170912085356Gill.woff") format("woff");
 }
 
-.menu {
+.nav-menu {
+  font-family: Gill;
+  text-transform: uppercase;
+  margin-bottom: 0.25em;
   padding: 1.5em 0 1.5em 0;
-  list-style: none;
+}
+
+.nav-items {
+  font-size: 1.1em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -113,26 +119,101 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  font-size: 1.1em;
 }
 
-.menu li {
-  font-family: Gill;
-  text-transform: uppercase;
-  margin-bottom: 0.25em;
-}
-
-.menu li a {
+.nav-links a,
+.nav-title a {
   text-decoration: none;
   color: #999;
 }
 
-.menu a:hover {
+.nav-links a:hover,
+.nav-title a:hover {
   color: black;
 }
 
 .logo {
+  height: 115px;
   padding-bottom: 1.5em;
+}
+
+.nav-icon,
+.nav-title {
+  display: none;
+}
+
+@media only screen and (max-width: 1224px) {
+  .nav-logo {
+    display: none;
+  }
+
+  .nav-items {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+
+  .nav-links {
+    padding-right: 1em;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links-show {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .nav-logo {
+    display: none;
+  }
+
+  .nav-menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  .nav-menu,
+  .nav-items {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .nav-icon {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding-bottom: 0.8em;
+  }
+
+  .nav-items {
+    margin-right: 0;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+
+  .nav-title {
+    -ms-flex-item-align: center;
+        align-self: center;
+    display: initial;
+    position: absolute;
+  }
 }
 
 #slider img {
@@ -161,6 +242,11 @@
 
 .carousel-control-next {
   padding-right: 20px;
+}
+
+.welcome-image {
+  width: 100%;
+  padding-top: 50px;
 }
 
 .gallery {
@@ -233,7 +319,7 @@
 }
 
 .item-features p {
-  line-height: 10px;
+  line-height: 1.1em;
 }
 
 .item-description h1 {
@@ -432,7 +518,7 @@
 }
 
 .contact-info {
-  line-height: 0.8em;
+  line-height: 0.9em;
 }
 
 .contact-form {
@@ -458,6 +544,26 @@
 
 .social-icons:hover {
   color: black;
+}
+
+@media only screen and (max-width: 1224px) {
+  .contact-form {
+    padding-right: 10px;
+  }
+
+  .contact-info {
+    line-height: 1.5em;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .contact-form {
+    padding-right: 0;
+  }
+
+  .contact-info {
+    line-height: 1.5em;
+  }
 }
 
 footer {
@@ -505,6 +611,29 @@ footer p {
 .empty-text {
   padding-top: 20px;
   padding-left: 20px;
+}
+
+@media only screen and (max-width: 1224px) {
+  .card-expo {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .card-expo {
+    width: 100%;
+  }
+}
+
+.profile-image img {
+  width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .profile-image {
+    margin-left: 0;
+    padding-bottom: 20px;
+  }
 }
 
 @font-face {

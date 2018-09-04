@@ -1,8 +1,12 @@
 @extends('layouts.front')
 
+@section('meta-description')
+  <meta name="description" content="Retrouvez toutes les expositions des créations de Karl Mazlo."/>
+@endsection
+
 @section('content')
 	<div class="row">
-		<div class="col-md-10 offset-1">
+		<div class="col-xl-10 offset-xl-1">
 			<ul class="nav nav-tabs" id="myTab" role="tablist">
 			  <li class="nav-item">
 			    <a class="nav-link active" id="now-tab" data-toggle="tab" href="#now" role="tab" aria-controls="now" aria-selected="true">En cours</a>

@@ -7,7 +7,7 @@
 
 @section('content')
 	<div class="row">
-		<div class="col-md-5 offset-1 partner-show">
+		<div class="col-md-5 offset-md-1 partner-show">
 			<h2>{{ $partner->title }}</h2>
 			<hr>
 			<div>{!! $partner->description !!}</div>
@@ -24,7 +24,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-10 offset-1">
+		<div class="col-md-10 offset-md-1">
 			@if(count($partner->images) > 5)
 				<div class="lSAction">
 					<a class="lSPrev">&#10094;</a>

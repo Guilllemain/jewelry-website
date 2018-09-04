@@ -11,7 +11,7 @@ class ImagePartnersController extends Controller
 {
     public function destroy(ImagePartner $image)
     {
-        Storage::disk('public')->delete($image->img_url);
+        delete_file_from_disk($image->img_url);
         $image->delete();
     }
 }

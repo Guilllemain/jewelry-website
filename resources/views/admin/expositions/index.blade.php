@@ -7,7 +7,7 @@
 	    <tr>
 	      <th>ID</th>
 	      <th>Nom</th>
-	      <th>Description</th>
+	      <th>Titre</th>
 	      <th>Modifier ou supprimer</th>
 	    </tr>
 	  </thead>
@@ -16,7 +16,7 @@
 		    <tr>
 		      <td>{{ $exposition->id }}</td>
 		      <td>{{ $exposition->name }}</td>
-		      <td>{!! str_limit($exposition->description, 100) !!}</td>
+		      <td>{{ $exposition->title }}</td>
 		      <td>
 		      	<a class="button is-info is-outlined button_table" href="/admin/expositions/edit/{{ $exposition->id }}">Modifier</a>
 		      	<form method="POST" action="/admin/expositions/{{ $exposition->id }}">

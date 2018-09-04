@@ -25,9 +25,9 @@ class ProfileController extends Controller
         ]);
 
         if ($request->image) {
-            Storage::disk('public')->delete($profile->image);
+            // Storage::disk('public')->delete($profile->image);
             $profile->update([
-                'image' => $request->image->store('portrait', 'public')
+                'image' => 'storage/' . $request->image->store('portrait', 'public')
             ]);
         }
 

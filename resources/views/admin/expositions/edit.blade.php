@@ -43,6 +43,13 @@
 				<textarea name="description" class="textarea" rows="10" required>{{ $exposition->description }}</textarea>
 			</div>
 		</div>
+		<div class="field">
+		  <label class="label">Lien</label>
+		  <p class="help">Pas obligatoire. Mettre le lien avec http</p>
+		  <div class="control">
+		    <input name="link" class="input" type="text" value="@if($exposition->link) {{ $exposition->link }} @endif">
+		  </div>
+		</div>
 		<div class="columns">
 			<div class="column is-3">
 				<div class="field">

@@ -7,7 +7,7 @@
 
 @section('content')
   <div class="row">
-    <div class="col-md-6 offset-1">
+    <div class="col-md-6 offset-md-1">
         <div class="item-description">
             <h1>{{ $product->name }}</h1>
             <div class="item-features">{!! $product->features !!}</div>

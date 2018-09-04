@@ -1,5 +1,9 @@
 @extends('layouts.front')
 
+@section('meta-description')
+  <meta name="description" content="Découvrez les pièces uniques réalisées par Karl Mazlo. Ces bijoux sont entièrement fabriqués à la main."/>
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-md-12">

@@ -11,7 +11,8 @@ class ImageCreationsController extends Controller
 {
     public function destroy(ImageProduct $image)
     {
-        Storage::disk('public')->delete($image->img_url);
+        delete_file_from_disk($image->img_url);
+        delete_file_from_disk($image->img_thumbnail);
         $image->delete();
     }
 }

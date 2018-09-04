@@ -2,10 +2,10 @@
 
 @section('content')
 	<div class="row">
-		<div class="col-md-2 offset-2">
-			<img src="{{ asset($profile->image) }}" style="width: 100%">
+		<div class="col-md-4 col-xl-3 offset-xl-1 profile-image">
+			<img src="{{ $profile->image }}">
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-8 col-xl-7">
 			{!! $profile->bio !!}
 		</div>
 	</div>

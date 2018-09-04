@@ -43,6 +43,7 @@
 		</div>
 		<div class="field">
 		  <label class="label">Lien</label>
+		  <p class="help">Pas obligatoire. Mettre le lien avec http</p>
 		  <div class="control">
 		    <input name="link" class="input" type="text" value="{{ old('link') }}">
 		  </div>

@@ -63,7 +63,7 @@ class CreationController extends Controller
         ]);
 
         if ($request->thumbnail) {
-            Storage::disk('public')->delete($product->thumbnail);
+            delete_file_from_disk($product->thumbnail);
             $product->update([
                 'thumbnail' => resize_file($request, "products/thumbnails", 600, 600)
             ]);
@@ -71,7 +71,8 @@ class CreationController extends Controller
 
         if ($request->product_img) {
             foreach ($product->images as $image) {
-                Storage::disk('public')->delete($image->img_url);
+                delete_file_from_disk($image->img_url);
+                delete_file_from_disk($image->img_thumbnail);
                 $image->delete();
             }
             $this->product_images($request, $product);
@@ -82,10 +83,10 @@ class CreationController extends Controller
 
     public function destroy(Product $product)
     {
-        Storage::disk('public')->delete($product->thumbnail);
+        delete_file_from_disk($product->thumbnail);
         foreach ($product->images as $image) {
-            Storage::disk('public')->delete($image->img_url);
-            Storage::disk('public')->delete($image->img_thumbnail);
+            delete_file_from_disk($image->img_url);
+            delete_file_from_disk($image->img_thumbnail);
         }
 
         $product->delete();

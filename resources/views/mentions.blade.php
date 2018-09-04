@@ -2,7 +2,7 @@
 
 @section('content')
 	<div class="row">
-		<div class="col-md-6 offset-3">
+		<div class="col-md-10 offset-md-1 col-xl-6 offset-xl-3">
 			<p><span style="font-size: 10pt;"><b><span style="font-size: 18pt;">Informations légales</span></b></span></p>
 			<p><span>Karl Mazlo</span><br>
 			<span>Siège social : 75019 Paris&nbsp;</span><br>

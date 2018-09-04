@@ -28,7 +28,7 @@ class AdminExpositionsController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'link' => $request->link ?: '',
-            'image' => $request->image->store('expositions/', 'public'),
+            'image' => 'storage/' . $request->image->store('expositions', 'public'),
             'date_start' => $request->date_start,
             'date_end' => $request->date_end
         ]);
@@ -61,9 +61,9 @@ class AdminExpositionsController extends Controller
         ]);
 
         if ($request->image) {
-            Storage::disk('public')->delete($exposition->image);
+            delete_file_from_disk($exposition->image);
             $exposition->update([
-                'image' => $request->image->store('expositions', 'public')
+                'image' => 'storage/' . $request->image->store('expositions', 'public')
             ]);
         }
 
@@ -72,7 +72,7 @@ class AdminExpositionsController extends Controller
 
     public function destroy(Exposition $exposition)
     {
-        Storage::disk('public')->delete($exposition->image);
+        delete_file_from_disk($exposition->image);
         $exposition->delete();
 
         return redirect('/admin/expositions')->with('message', 'Ton exposition a bien été supprimée');

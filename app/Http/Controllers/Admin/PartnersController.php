@@ -32,8 +32,8 @@ class PartnersController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'video_embed' => $request->video_embed ?: '',
-            'logo' => $request->logo ? $request->logo->store('partners/' . str_replace(' ', '_', strtolower($request->name)) . '/logo', 'public') : '',
-            'video_local' => $request->partner_video ? $request->partner_video->storeAs(
+            'logo' => $request->logo ? 'storage/' . $request->logo->store('partners/' . str_replace(' ', '_', strtolower($request->name)) . '/logo', 'public') : '',
+            'video_local' => $request->partner_video ? 'storage/' . $request->partner_video->storeAs(
                         'partners/' . str_replace(' ', '_', strtolower($request->name)) . '/video',
                         $request->file('partner_video')->getClientOriginalName(),
                         'public'
@@ -55,7 +55,7 @@ class PartnersController extends Controller
     public function update(Partner $partner, PartnerRequest $request)
     {
         if ($request->logo) {
-            Storage::disk('public')->delete($partner->logo);
+            delete_file_from_disk($partner->logo);
         }
 
         $partner->update([
@@ -63,13 +63,13 @@ class PartnersController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'video_embed' => $request->video_embed ?: '',
-            'logo' => $request->logo ? $request->logo->store('partners/' . str_replace(' ', '_', strtolower($request->name)) . '/logo', 'public') : $partner->logo
+            'logo' => $request->logo ? 'storage/' . $request->logo->store('partners/' . str_replace(' ', '_', strtolower($request->name)) . '/logo', 'public') : $partner->logo
         ]);
 
         if ($request->partner_video) {
-            Storage::disk('public')->delete($partner->video_local);
+            delete_file_from_disk($partner->video_local);
             $partner->update([
-                'video_local' => $request->partner_video->storeAs(
+                'video_local' => 'storage/' . $request->partner_video->storeAs(
                                     'partners/' . str_replace(' ', '_', strtolower($request->name)) . '/video',
                                     $request->file('partner_video')->getClientOriginalName(),
                                     'public'
@@ -79,8 +79,8 @@ class PartnersController extends Controller
 
         if ($request->partner_img) {
             foreach ($partner->images as $image) {
-                Storage::disk('public')->delete($image->img_url);
-                Storage::disk('public')->delete($image->img_thumbnail);
+                delete_file_from_disk($image->img_url);
+                delete_file_from_disk($image->img_thumbnail);
                 $image->delete();
             }
             $this->partner_images($request, $partner);
@@ -91,7 +91,7 @@ class PartnersController extends Controller
 
     public function destroy(Partner $partner)
     {
-        Storage::deleteDirectory('public/partners/' . str_replace(' ', '_', strtolower($partner->name)));
+        Storage::disk('public')->deleteDirectory('partners/' . str_replace(' ', '_', strtolower($partner->name)));
         // foreach ($partner->images as $image) {
         //     Storage::disk('public')->delete($image->img_url);
         // }

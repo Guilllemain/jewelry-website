@@ -1,4 +1,4 @@
-<div id="accordion" style="width: 100%">
+<div id="accordion">
 <div class="card card-expo">
 	<div class="card-header">
 	  	{{ $exposition->name }}

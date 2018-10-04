@@ -3,36 +3,56 @@
     src: url("/font/170912085356Gill.woff") format('woff');
 }
 
-.nav-menu {
-    font-family: Gill;
-    text-transform: uppercase;
-    margin-bottom: 0.25em;
-    padding: 1.5em 0 1.5em 0;
-}
-.nav-items {
-    font-size: 1.1em;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.nav-links a, .nav-title a {
-    text-decoration: none;
-    color: #999;
-}
-.nav-links a:hover, .nav-title a:hover {
-    color: black;
-}
-.logo {
-    height: 115px;
-    padding-bottom: 1.5em;
-}
-.nav-icon, .nav-title {
-    display: none;
+.nav {
+    &-menu {
+        text-transform: uppercase;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: 5fr 1fr 5fr;
+        align-items: center;
+    }   
+    &-items {
+        font-size: 0.9em;
+        display: flex;
+    }
+    &-logo {
+        justify-self: center; 
+        
+        img {
+            height: 90px;
+            padding-bottom: 0.5em;
+        }
+    }
+    &-links {
+        margin-right: 0.7em;
+        margin-left: 0.7em;
+    }
+    &-text {
+        justify-self: end; 
+        font-size: 0.9em;
+        p {
+            margin: 0;
+        }
+    }
+    &-links, &-title {
+        a {
+            text-decoration: none;
+            color: #999;
+        }
+        a:hover {
+            color: black;
+        }
+    }
+    &-icon, &-title {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 1224px) {
-    .nav-logo {
-        display: none;
+    .nav-menu {
+        margin-left:0;
+        flex: 0 0 100%;
+        max-width: 100%;
     }
     .nav-items {
         flex-wrap: wrap;
@@ -45,34 +65,41 @@
 }
 
 @media only screen and (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-    .nav-links-show {
-        display: flex;
-    }
-    .nav-logo {
-        display: none;
-    }
-    .nav-menu {
-        display: flex;
-        padding-right: 15px;
-        padding-left: 15px;
-    }
-    .nav-menu, .nav-items {
-        flex-direction: column;
-    }
-    .nav-icon {
-        display: flex;
-        padding-bottom: 0.8em;
-    }
-    .nav-items {
-        margin-right: 0;
-        align-items: flex-start;
-    }
-    .nav-title {
-        align-self: center;
-        display: initial;
-        position: absolute;
+    .nav {
+        &-links {
+            display: none;
+            &-show {
+                display: flex;
+            }
+        }
+        &-logo {
+            display: none;
+        }
+        &-menu {
+            display: flex;
+            padding-right: 15px;
+            padding-left: 15px;
+            align-items: flex-start;
+        }
+        &-menu, &-items {
+            flex-direction: column;
+        }
+        &-icon {
+            display: flex;
+            padding-left: 10px;
+            padding-bottom: 0.8em;
+        }
+        &-items {
+            margin-right: 0;
+            align-items: flex-start;
+        }
+        &-title {
+            align-self: center;
+            display: initial;
+            position: absolute;
+        }
+        &-text {
+            display: none;
+        }
     }
 }

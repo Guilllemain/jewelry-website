@@ -19,17 +19,16 @@
 
     <body>
         <div class="main">
-            <div class="container-fluid">
-
-                @include('partials.menu')
-
-                @yield('content')
-
+            @include('partials.menu')
+            <div class="main-content">
+                <div class="container-fluid">
+                    @yield('content')
+                </div>
             </div>
+            <footer class="main-footer">
+                <p><a href="/mentions">© Karl Mazlo | 2018</a></p>
+            </footer>
         </div>
-        <footer class="main-footer">
-            <p><a href="/mentions">© Karl Mazlo | 2018</a></p>
-        </footer>
     </body>
     
     @yield('javascript')

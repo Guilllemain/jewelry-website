@@ -1,19 +1,17 @@
 @extends('layouts.front')
 
 @section('content')
-	<div class="row">
-		<div class="col-xl-10 offset-xl-1">
-			<div class="partnership">
-				@foreach($partners as $partner)
-					<a class="link-partner" href="/collaborations/{{ $partner->id }}">
-						@if($partner->logo)
-							<img src="{{ asset($partner->logo) }}" style="max-width: 250px; max-height: 150px;">
-						@else
-							{{ $partner->name }}
-						@endif
-					</a>
-				@endforeach
-			</div>
+	<div class="col-xl-10 offset-xl-1">
+		<div class="flex flex-wrap items-center justify-center">
+			@foreach($partners as $partner)
+				<a class="p-4" href="/collaborations/{{ $partner->id }}">
+					@if($partner->logo)
+						<img class="max-w-16 max-h-10" src="{{ asset($partner->logo) }}">
+					@else
+						{{ $partner->name }}
+					@endif
+				</a>
+			@endforeach
 		</div>
 	</div>
 @endsection

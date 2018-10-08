@@ -5,30 +5,14 @@
 @endsection
 
 @section('content')
-    <div class="row">
-        <div class="col-md-12">
-            <div class="gallery">
-                @foreach($products as $product)
-                <a class="gallery-item" href="/creations/{{ $product->id }}">
-                    <img src="{{ $product->thumbnail }}" alt="{{ $product->name }}">
-                    <span class="text-wrapper">
-                        <span class="name">{{ $product->name }}</span>
-                    </span>
-                </a>
-                @endforeach
-                {{-- <a class="gallery-item" href="/creations/1">
-                    <img src="/image/creations/image1-300x300.jpg" alt="">
-                    <span class="text-wrapper">
-                        <span class="name">Tomo & Yosh</span>
-                    </span>
-                </a>
-                <a class="gallery-item" href="/creations/1">
-                    <img src="/image/creations/image1-300x300.jpg" alt="">
-                    <span class="text-wrapper">
-                        <span class="name">Tomo & Yosh</span>
-                    </span>
-                </a> --}}
-            </div>
-        </div>
+    <div class="flex flex-wrap justify-center">
+        @foreach($products as $product)
+            <a class="p-2" href="/creations/{{ $product->id }}">
+                <img class="h-32 w-32 md:h-48 md:w-48 lg:h-76 lg:w-76 absolute" src="{{ $product->thumbnail }}" alt="{{ $product->name }}">
+                <span class="relative text-wrapper h-32 w-32 md:h-48 md:w-48 lg:h-76 lg:w-76 flex text-white opacity-0 justify-center items-center">
+                    <span class="text-2xl">{{ $product->name }}</span>
+                </span>
+            </a>
+        @endforeach
     </div>
 @endsection    

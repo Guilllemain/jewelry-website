@@ -1,13 +1,12 @@
-<div id="accordion" style="width: 100%">
-<div class="card card-expo">
+<div class="card lg:w-31% md:w-48% mt-8 mr-2%">
 	<div class="card-header">
 	  	{{ $exposition->name }}
 	</div>
-  <img class="card-img-top" src="{{ asset($exposition->image) }}" alt="Card image cap">
+  <img class="card-img-top mx-auto" src="{{ asset($exposition->image) }}" alt="Card image cap">
 	<div class="card-body">
   	<h5 class="card-title">{{ $exposition->title }}</h5>
     <div id="headingOne">
-      <h6 class="card-subtitle mb-0">
+      <h6 class="card-subtitle">
         <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="text-decoration: none">
           Plus d'informations...
         </button>
@@ -30,5 +29,4 @@
       Du {{ $exposition->date_start->format('d/m/Y') }} au {{ $exposition->date_end->format('d/m/Y') }}
     @endif
 	</div>
-</div>
 </div>

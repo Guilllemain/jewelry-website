@@ -1,5 +1,7 @@
 let mix = require('laravel-mix');
 
+let tailwindcss = require('tailwindcss');
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -17,4 +19,8 @@ mix.js('resources/assets/js/magnify-mobile.js', 'public/js')
 mix.js('resources/assets/js/lity.js', 'public/js')
 mix.js('resources/assets/js/lightslider.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css')
+   .options({
+	    processCssUrls: false,
+	    postCss: [ tailwindcss('resources/assets/js/tailwind.js') ],
+	})
    .sass('resources/assets/sass/admin.scss', 'public/css');

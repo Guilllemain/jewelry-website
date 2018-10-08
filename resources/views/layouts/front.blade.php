@@ -18,18 +18,16 @@
     </head>
 
     <body>
-        <div class="main">
-            <div class="container-fluid">
-
+        <div class="flex flex-col justify-between h-full">
+            <div class="m-2 md:m-6">
                 @include('partials.menu')
 
                 @yield('content')
-
             </div>
+            <footer class="w-full bg-grey-lighter px-4 py-2 text-sm">
+                <a href="/mentions">© Karl Mazlo | 2018</a>
+            </footer>
         </div>
-        <footer class="main-footer">
-            <p><a href="/mentions">© Karl Mazlo | 2018</a></p>
-        </footer>
     </body>
     
     @yield('javascript')

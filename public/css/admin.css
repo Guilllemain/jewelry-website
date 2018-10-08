@@ -27,7 +27,7 @@
   top: 2px;
   right: 2px;
   z-index: 100;
-  background-color: #FFF;
+  background-color: #fff;
   color: #000;
   font-weight: bold;
   cursor: pointer;
@@ -39,4 +39,3 @@
 .img-wrap:hover .close {
   opacity: 1;
 }
-

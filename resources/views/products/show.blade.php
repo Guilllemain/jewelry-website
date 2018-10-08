@@ -1,55 +1,46 @@
 @extends('layouts.front')
 
 @section('css')
-    {{-- <link rel="stylesheet" href="/css/magnify.css"> --}}
-    <link rel="stylesheet" type="text/css" href="/css/lity.css">
+  <link rel="stylesheet" type="text/css" href="/css/lity.css">
 @endsection
 
 @section('content')
-  <div class="row">
-    <div class="col-md-6 offset-md-1">
-        <div class="item-description">
-            <h1>{{ $product->name }}</h1>
-            <div class="item-features">{!! $product->features !!}</div>
-            <hr>
-            <div class="item-explication">{!! $product->description !!}</div>
-        </div>
-    </div>
-    
-    <div class="col-md-4">
-      @foreach($product->images as $image)
-        <div class="main-img">
-            <img class="zoom" {{-- data-magnify-src="{{ asset($image->img_url) }}"  --}}src="{{ asset($image->img_url) }}" data-lity>
-        </div>
-      @endforeach
-
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-        <div class="thumbnails-row">
-          @foreach($product->images as $number => $image)
-            <div class="thumbnails">
-              <img class="thumbnail-img cursor" src="{{ asset($image->img_thumbnail) }}" onclick="currentSlide({{ $number+1 }})" alt="{{ $product->name }}">
-            </div>
-          @endforeach
-        </div>
+  <div class="flex flex-col-reverse md:flex-row">
+    <div class="col-md-6 col-lg-5 offset-lg-1 md:mr-10">
+      <div class="mt-10">
+          <h1 class="font-bold mb-2 text-2xl">{{ $product->name }}</h1>
+          <div class="font-light italic leading-loose">{!! $product->features !!}</div>
+          <hr class="w-1/2 ml-0">
+          <div class="pt-3">{!! $product->description !!}</div>
       </div>
     </div>
+    
+    <div class="col-lg-5 col-md-6">
+      <div class="flex items-center">
+        <a class="prev-icon cursor-pointer text-xl" onclick="plusSlides(-1)">&#10094;</a>
+        
+        @foreach($product->images as $image)
+          <div class="main-img w-full pt-100 relative items-center">
+              <img class="pin w-full absolute m-auto" src="{{ asset($image->img_url) }}" data-lity>
+          </div>
+        @endforeach
+
+        <a class="next-icon cursor-pointer text-xl" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-start">
+        @foreach($product->images as $number => $image)
+          <div class="thumbnails m-1 flex relative cursor-pointer" onclick="currentSlide({{ $number+1 }})">
+            <img class="thumbnail-img pin w-full absolute m-auto" src="{{ asset($image->img_thumbnail) }}" alt="{{ $product->name }}">
+          </div>
+        @endforeach
+      </div>
+    </div>
+  </div>
 @endsection
 
 @section('javascript')
-    <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="{{ asset('js/lity.js') }}"></script>
-    {{-- <script src="{{ asset('js/magnify.js') }}"></script>
-    <script src="{{ asset('js/magnify-mobile.js') }}"></script>
-    <script>
-        $(document).ready(function() {
-          $('.zoom').magnify({
-            magnifiedWidth: 1000,
-            magnifiedHeight: 1000
-          });
-        });
-    </script> --}}
     <script>
       let slideIndex = 1;
       showSlides(slideIndex);

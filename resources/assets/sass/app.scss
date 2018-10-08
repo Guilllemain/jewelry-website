@@ -3,11 +3,8 @@
 @import 'home';
 @import 'gallery';
 @import 'product';
-@import 'partner';
-@import 'contact';
-@import 'footer';
-@import 'expositions';
-@import 'profile';
+@import "~flickity/css/flickity.css";
+@import 'flickity';
 
 @font-face {
     font-family: "Gill";
@@ -20,17 +17,17 @@ html, body {
     height:100%;
     margin:0;
 }
-body {
-    display: flex;
-    flex-direction:column; 
-}
+
+@tailwind preflight;
+
+@tailwind components;
+
 a {
-	color: black;
-}
-a:hover {
-	color: #b1b1b1;
-}
-.main {
-    margin: 0 20px 20px 20px;
+    @apply text-grey-dark;
+    
+    &:hover {
+        @apply text-black no-underline;
+    }
 }
 
+@tailwind utilities;

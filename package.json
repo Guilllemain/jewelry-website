@@ -16,5 +16,8 @@
         "jquery": "^3.2",
         "laravel-mix": "^2.0"
     },
-    "dependencies": {}
+    "dependencies": {
+        "flickity": "^2.1.2",
+        "tailwindcss": "^0.6.6"
+    }
 }

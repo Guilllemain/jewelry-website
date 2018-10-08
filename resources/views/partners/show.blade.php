@@ -2,19 +2,18 @@
 
 @section('css')
 	<link rel="stylesheet" type="text/css" href="/css/lity.css">
-	<link type="text/css" rel="stylesheet" href="/css/lightslider.css" />
 @endsection
 
 @section('content')
-	<div class="row">
-		<div class="col-md-5 offset-md-1 partner-show">
-			<h2>{{ $partner->title }}</h2>
-			<hr>
+	<div class="flex flex-col lg:flex-row">
+		<div class="col-lg-5 offset-lg-1 mb-4">
+			<h2 class="text-2xl">{{ $partner->title }}</h2>
+			<hr class="w-1/2 ml-0">
 			<div>{!! $partner->description !!}</div>
 		</div>
-		<div class="col-md-5">
+		<div class="col-lg-5">
 			@if($partner->video_local)
-				<video style="width: 100%" controls>
+				<video class="w-full" controls>
 					<source src="{{ asset($partner->video_local) }}" type="video/mp4">
 				</video>
 			@endif
@@ -23,62 +22,20 @@
 			@endif
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-md-10 offset-md-1">
-			@if(count($partner->images) > 5)
-				<div class="lSAction">
-					<a class="lSPrev">&#10094;</a>
-		        	<a class="lSNext">&#10095;</a>
-				</div>
-			@endif
-			<div id="responsive" class="partner-gallery">
-				@foreach($partner->images as $image)
-					<a class="img-gallery-partner" href="{{ asset($image->img_url) }}" data-lity>
-						<img src="{{ asset($image->img_thumbnail) }}">
+	<div class="col-lg-10 offset-lg-1">
+		<div class="main-carousel py-10">
+			@foreach($partner->images as $image)
+				<div class="carousel-cell xl:w-15% lg:w-1/5 md:w-1/4 w-1/2">
+					<a href="{{ asset($image->img_url) }}" data-lity>
+						<img class="w-full m-auto" src="{{ asset($image->img_thumbnail) }}">
 					</a>
-				@endforeach
-			</div>
+				</div>
+			@endforeach
 		</div>
 	</div>
 @endsection
 
 @section('javascript')
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="{{ asset('js/app.js') }}"></script>
 	<script src="{{ asset('js/lity.js') }}"></script>
-	<script src="{{ asset('js/lightslider.js') }}"></script>
-	<script>
-		$(document).ready(function() {
-		    let slider = $('#responsive').lightSlider({
-		        item:5,
-		        loop:true,
-		        controls: false,
-		        slideMove: 2,
-		        easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
-		        speed: 600,
-		        responsive : [
-		            {
-		                breakpoint:800,
-		                settings: {
-		                    item:3,
-		                    slideMove:1,
-		                    slideMargin:6,
-		                  }
-		            },
-		            {
-		                breakpoint:480,
-		                settings: {
-		                    item:2,
-		                    slideMove:1
-		                  }
-		            }
-		        ]
-		    });
-		    $('.lSAction > .lSPrev').click(function () {
-		        slider.goToPrevSlide();
-		    });
-		    $('.lSAction > .lSNext').click(function () {
-		        slider.goToNextSlide();
-		    });  
-		  });
-	</script>
 @endsection

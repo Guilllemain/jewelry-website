@@ -36,6 +36,6 @@
 @endsection
 
 @section('javascript')
-	<script src="{{ asset('js/app.js') }}"></script>
+	<script src="{{ asset('js/flickity.js') }}"></script>
 	<script src="{{ asset('js/lity.js') }}"></script>
 @endsection

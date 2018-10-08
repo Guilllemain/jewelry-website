@@ -1,5 +1,5 @@
 .nav-links {
-    @apply text-xs hidden;
+    @apply hidden;
     &-show {
         @apply flex;
     }
@@ -9,4 +9,8 @@
     .nav-links {
         @apply flex text-base;
     }
+}
+
+.icon-rotate {
+	transform: rotate(90deg);
 }

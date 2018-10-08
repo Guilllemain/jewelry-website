@@ -18,7 +18,7 @@
     </head>
 
     <body>
-        <div class="flex flex-col justify-between h-full">
+        <div id="app" class="flex flex-col justify-between h-full">
             <div class="m-2 md:m-6">
                 @include('partials.menu')
 
@@ -35,6 +35,9 @@
         function showMenu() {
             let items = document.querySelectorAll('.nav-links');
             items.forEach(item => item.classList.toggle('nav-links-show'));
+            
+            let icon = document.querySelector('.nav-icon i');
+            icon.classList.toggle('icon-rotate');
         }
         document.querySelector('.nav-icon').addEventListener('click', showMenu);
     </script>

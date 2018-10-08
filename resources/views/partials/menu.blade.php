@@ -2,10 +2,10 @@
     <div class="nav-icon md:hidden flex mb-2">
         <i class="fas fa-bars"></i>
     </div>
-    <div class="md:hidden flex self-center text-sm absolute">
+    <div class="md:hidden flex self-center absolute">
         <a href="/">Karl Mazlo - Artiste Joaillier</a>
     </div>
-    <nav class="flex flex-col md:items-center md:justify-between md:flex-row items-start">
+    <nav class="flex flex-col md:items-center md:justify-between md:flex-row items-start mt-2">
         <div class="nav-links">
             <a href="/portrait">Portrait</a>
         </div>

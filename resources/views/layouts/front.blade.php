@@ -13,8 +13,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 
-        @yield('css')
-
+        @yield('css')        
     </head>
 
     <body>
@@ -25,13 +24,20 @@
                     @yield('content')
                 </div>
             </div>
-            <footer class="main-footer">
-                <p><a href="/mentions">© Karl Mazlo | 2018</a></p>
+            <footer>
+                <div class="footer">
+                    <a class="footer__mentions" href="/mentions">© Karl Mazlo | 2018</a>
+                    <a class="social-icons" href="https://www.instagram.com/karlmazlo/" target="_blank">
+                        <i class="fab fa-instagram mr-2 fa-2x"></i>
+                    </a>
+                    <a class="social-icons" href="https://www.facebook.com/karlmazlo" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a>
+                </div>
             </footer>
         </div>
     </body>
     
     @yield('javascript')
+    @stack('script')
     <script>
         function showMenu() {
             let items = document.querySelectorAll('.nav-links');

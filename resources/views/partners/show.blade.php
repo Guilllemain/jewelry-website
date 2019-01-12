@@ -7,10 +7,10 @@
 
 @section('content')
 	<div class="row">
-		<div class="col-md-5 offset-md-1 partner-show">
+		<div class="col-md-5 offset-md-1 partner__infos">
 			<h2>{{ $partner->title }}</h2>
 			<hr>
-			<div>{!! $partner->description !!}</div>
+			<div class="partner__description">{!! $partner->description !!}</div>
 		</div>
 		<div class="col-md-5">
 			@if($partner->video_local)

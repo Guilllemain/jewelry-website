@@ -24,7 +24,8 @@
 				  	@forelse($expositions_now as $exposition)
 						@include('partials.card-exposition')
 					@empty
-						<p class="empty-text">Aucune exposition en ce moment</p>
+						<div class="empty-text">Galerie Seikado</div>
+						<div class="empty-text">Musée de la Chasse et de la Nature</div>
 					@endforelse
 				</div>
 			  </div>

@@ -1,19 +1,19 @@
 .gallery {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;    
+    flex-wrap: wrap; 
 }
 .gallery-item {
-    padding: 0 20px 20px 20px;
+    margin: 1.2rem 1.2rem 1.2rem 1.2rem;
 }
 .gallery a {
     text-decoration: none;
 }
 .gallery-item img {
-  // border: solid 1px #999;
   position: absolute;
   width: 300px;
   height: 300px;
+  border-radius: 3%;
 }
 .text-wrapper {
   position: relative;
@@ -25,6 +25,7 @@
   text-align: center;
   color: #fff;
   opacity: 0;
+  border-radius: 3%;
 }
 .text-wrapper:hover {
   transition: all 0.8s ease;

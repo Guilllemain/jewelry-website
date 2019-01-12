@@ -1,3 +1,9 @@
+.main-image {
+	height: 100vh;
+	background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('/images/image5.jpg') no-repeat fixed;
+  	background-size: cover;
+}
+
 .landing-page {
 	display: flex;
 	height: 70%;
@@ -20,26 +26,62 @@
 .main-logo a:hover {
 	color: black;
 }
-#logo img {
-	width:50%;
+.logo {
+	animation: logo 1s ease-in;
+	
+	& img {
+		width:50%;
+	}
 }
 .text-sub-logo {
 	padding-top: 1em;
 	display: flex;
 	align-items:  center;
 	justify-content: center;
-	font-size: 2em;
-	opacity: 0;
+	font-size: 1rem;
+	// opacity: 0;
+}
+.sub-title {
+    animation: moveInBottom 1s ease-in;
+    letter-spacing: .5rem;
+
+    &:hover {
+    	color: black;
+    }
 }
 .lang {
 	opacity: 0;
 	font-size: 1.20em;
 }
-@keyframes logo {
-    from {opacity: 0;}
-    to {opacity: 1;}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(8rem);
+    }
+    80% {
+        transform: translateY(-0.7rem);
+    }
+    100% {
+        opacity: .8;
+        transform: translateY(0);
+    }
 }
-#logo {
-	animation-name: logo;
-	animation-duration: 3s;
+
+@keyframes logo {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    80% {
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.h-bar {
+	border-bottom: 1px solid #999;
 }

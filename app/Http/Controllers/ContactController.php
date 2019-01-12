@@ -16,6 +16,9 @@ class ContactController extends Controller
     }
     public function store(ContactFormRequest $request, Admin $admin)
     {
+        dd($request);
+        $recaptcha = $request->g-recaptcha-response;
+        
         $to = 'mazlokarl@gmail.com';
         $subject = 'Tu as un nouveau message de ' . $request->name;
         $message = "<html><head></head><body>

@@ -6,36 +6,31 @@
         <a href="/">Karl Mazlo - Artiste Joaillier</a>
     </div>
     <nav class="nav-items">
-        <div class="nav-links">
-            <a href="/portrait">Portrait</a>
-        </div>
-        {{-- <span>|</span> --}}
-        <div class="nav-links">
-            <a href="/creations">Pièces uniques</a>
-        </div>
-        {{-- <span>|</span> --}}
-        <div class="nav-links">
-            <a href="/gallery">Galerie</a>
-        </div>
-        {{-- <span>|</span> --}}
-        <div class="nav-links">
-            <a href="/expositions">Expositions</a>
-        </div>
-        {{-- <span>|</span> --}}
-        <div class="nav-links">
-            <a href="/collaborations">Collaborations</a>
-        </div>
-        {{-- <span>|</span> --}}
-        <div class="nav-links">
-            <a href="/contact">Contact</a>
-        </div>
+        <a class="nav-links" href="/creations">Créations</a>
+        <a class="nav-links" href="/portrait">Portrait</a>
+        <a class="nav-links" href="/gallery">Galerie</a>
+        <a class="nav-links" href="/expositions">Expositions</a>
+        <a class="nav-links" href="/collaborations">Collaborations</a>
+        <a class="nav-links" href="/contact">Contact</a>
     </nav>
-    <div class="nav-logo">
+    <div class="nav-right">
+        <div class="nav-text">
+            <p>Karl Mazlo - Artiste Joaillier</p>
+        </div>
         <a href="/">
-            <img src="{{ asset('images/logo.jpg') }}">
+            <img class="nav-logo" src="{{ asset('images/logo.jpg') }}">
         </a>
     </div>
-    <div class="nav-text">
-        <p>Karl Mazlo - Artiste Joaillier</p>
-    </div>
 </div>
+
+@push('script')
+    <script>
+        const path = window.location.pathname;
+        const links = document.querySelectorAll('.nav-links');
+        links.forEach(link => {
+            if (path.startsWith(link.getAttribute('href'))) {
+                link.classList.add('link-active');
+            } 
+        });
+    </script>
+@endpush

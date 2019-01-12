@@ -9,12 +9,14 @@
         <div class="col-md-12">
             <div class="gallery">
                 @foreach($products as $product)
-                <a class="gallery-item" href="/creations/{{ $product->id }}">
-                    <img src="{{ $product->thumbnail }}" alt="{{ $product->name }}">
-                    <span class="text-wrapper">
-                        <span class="name">{{ $product->name }}</span>
-                    </span>
-                </a>
+                <div class="gallery-item">
+                    <a href="/creations/{{ $product->id }}">
+                        <img src="{{ $product->thumbnail }}" alt="{{ $product->name }}">
+                        <span class="text-wrapper">
+                            <span class="name">{{ $product->name }}</span>
+                        </span>
+                    </a>
+                </div>
                 @endforeach
                 {{-- <a class="gallery-item" href="/creations/1">
                     <img src="/image/creations/image1-300x300.jpg" alt="">

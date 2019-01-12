@@ -17,39 +17,34 @@
     </div>
     
     <div class="col-md-4">
-      @foreach($product->images as $image)
-        <div class="main-img">
-            <img class="zoom" {{-- data-magnify-src="{{ asset($image->img_url) }}"  --}}src="{{ asset($image->img_url) }}" data-lity>
-        </div>
-      @endforeach
+      <div class="product__images">
+        
+        <div class="product__main-image">
+          @foreach($product->images as $image)
+            <div class="main-img">
+                <img class="zoom cursor" {{-- data-magnify-src="{{ asset($image->img_url) }}"  --}}src="{{ asset($image->img_url) }}" data-lity>
+            </div>
+          @endforeach
 
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          {{-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a> --}}
+        </div>
 
         <div class="thumbnails-row">
           @foreach($product->images as $number => $image)
-            <div class="thumbnails">
-              <img class="thumbnail-img cursor" src="{{ asset($image->img_thumbnail) }}" onclick="currentSlide({{ $number+1 }})" alt="{{ $product->name }}">
+            <div class="thumbnails cursor" onclick="currentSlide({{ $number+1 }})">
+              <img class="thumbnail-img" src="{{ asset($image->img_thumbnail) }}" alt="{{ $product->name }}">
             </div>
           @endforeach
         </div>
       </div>
     </div>
+  </div>
 @endsection
 
 @section('javascript')
     <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="{{ asset('js/lity.js') }}"></script>
-    {{-- <script src="{{ asset('js/magnify.js') }}"></script>
-    <script src="{{ asset('js/magnify-mobile.js') }}"></script>
-    <script>
-        $(document).ready(function() {
-          $('.zoom').magnify({
-            magnifiedWidth: 1000,
-            magnifiedHeight: 1000
-          });
-        });
-    </script> --}}
     <script>
       let slideIndex = 1;
       showSlides(slideIndex);
@@ -66,10 +61,10 @@
 
       function showSlides(n) {
         let i;
-        let slides = document.getElementsByClassName("main-img");
-        let dots = document.getElementsByClassName("thumbnail-img");
-        let thumbnail = document.getElementsByClassName('thumbnails');
-        // let captionText = document.getElementById("caption");
+        let slides = document.querySelectorAll(".main-img");
+        let dots = document.querySelectorAll(".thumbnail-img");
+        let thumbnail = document.querySelectorAll('.thumbnails');
+
         if (n > slides.length) {slideIndex = 1}
         if (n < 1) {slideIndex = slides.length}
         for (i = 0; i < slides.length; i++) {

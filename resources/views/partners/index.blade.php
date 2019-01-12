@@ -7,7 +7,7 @@
 				@foreach($partners as $partner)
 					<a class="link-partner" href="/collaborations/{{ $partner->id }}">
 						@if($partner->logo)
-							<img src="{{ asset($partner->logo) }}" style="max-width: 250px; max-height: 150px;">
+							<img src="{{ asset($partner->logo) }}" style="max-width: 200px; max-height: 100px;">
 						@else
 							{{ $partner->name }}
 						@endif

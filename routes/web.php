@@ -5,7 +5,7 @@ Route::get('/mentions', function () {
 });
 
 Route::get('/', function () {
-    return view('main');
+    return view('welcome');
 });
 
 Route::get('/portrait', 'ProfileController@index');

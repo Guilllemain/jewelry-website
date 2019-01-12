@@ -14,30 +14,22 @@
         @yield('css')
         
     </head>
-	
-	<style>
-		
-
-	</style>
 
     <body>
-		
-		<div class="landing-page">
-			<div class="main-logo">
-				<a class="lang" href="/home">FR</a>
-				<a id="logo" href="/home">
-					<img src="image/logo-big.jpg">
-				</a>
-				<a class="lang" href="">EN</a>
-			</div>
-			<div id="sub-logo" class="text-sub-logo">
-				<div>ARTIST JEWELER</div>		
+    	<div class="main-image">
+			<div class="landing-page">
+				<div class="main-logo">
+					{{-- <a class="lang" href="/home">FR</a> --}}
+					<a class="logo" href="/creations">
+						<img src="images/logo.jpg">
+					</a>
+					{{-- <a class="lang" href="">EN</a> --}}
+				</div>
+				<div class="h-bar"></div>
+				<div id="sub-logo" class="text-sub-logo">
+					<a class="sub-title" href="/creations">ARTIST JEWELER</a>
+				</div>
 			</div>
 		</div>
-	<script>
-		setTimeout(() => {document.getElementById("sub-logo").style.opacity="1"},1000);
-		setTimeout(() => {document.getElementsByClassName("lang")[0].style.opacity="1"},1000);
-		setTimeout(() => {document.getElementsByClassName("lang")[1].style.opacity="1"},1000);
-	</script>
 	</body>
 </html>

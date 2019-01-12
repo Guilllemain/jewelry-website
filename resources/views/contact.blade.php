@@ -1,5 +1,9 @@
 @extends('layouts.front')
 
+@section('css')
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+@endsection
+
 @section('content')
 	<div class="row">
 		<div class="col-md-6 col-xl-5 offset-xl-1">
@@ -34,6 +38,10 @@
 					</div>
 
 					<div class="form-group">
+						<div class="g-recaptcha" data-sitekey="6LfYOIkUAAAAAFWIkroElUWovfSqAB53-XeVw86w"></div>
+					</div>
+					
+					<div class="form-group">
 						<button type="submit" class="btn btn-primary" value="Send">Envoyer</button>
 					</div>
 				</form>
@@ -52,4 +60,8 @@
 			<iframe class="contact-map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2625.3042192108874!2d2.371612!3d48.852409!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6c575aafb992caa6!2sAteliers+de+Paris!5e0!3m2!1sfr!2sfr!4v1534860655252" style="width: 100%" height="450" frameborder="0" allowfullscreen></iframe>
 		</div>
 	</div>
+@endsection
+
+@section('javascript')
+	
 @endsection

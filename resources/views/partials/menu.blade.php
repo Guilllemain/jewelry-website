@@ -9,7 +9,7 @@
         <a class="nav-links" href="/creations">Créations</a>
         <a class="nav-links" href="/portrait">Portrait</a>
         <a class="nav-links" href="/gallery">Galerie</a>
-        <a class="nav-links" href="/expositions">Expositions</a>
+        <a class="nav-links" href="/news">Actualités</a>
         <a class="nav-links" href="/collaborations">Collaborations</a>
         <a class="nav-links" href="/contact">Contact</a>
     </nav>

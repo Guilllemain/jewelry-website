@@ -8,7 +8,7 @@
 	<div class="row">
 		<div class="col-md-6 col-xl-5 offset-xl-1">
 			<div class="contact-form">
-				<h2 class="mb-2 text-center">Formulaire de contact</h2>
+				<h3 class="mb-2 text-center">Formulaire de contact</h3>
 				@if($errors)
 				    @foreach($errors->all() as $error)
 				        <div class="alert alert-danger">{{ $error }}</div>
@@ -38,7 +38,7 @@
 					</div>
 
 					<div class="form-group">
-						<div class="g-recaptcha" data-sitekey="6LfYOIkUAAAAAFWIkroElUWovfSqAB53-XeVw86w"></div>
+						<div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE') }}"></div>
 					</div>
 					
 					<div class="form-group">
@@ -51,7 +51,7 @@
 			<div class="contact-info">
 				<p>Sur rendez-vous aux <a href="http://www.ateliersdeparis.com/">Ateliers de Paris</a> | 30 rue du Faubourg Saint Antoine - 75012 Paris</p>
 				<p>mail: <a href="mailto:mazlokarl@gmail.com">mazlokarl@gmail.com</a></p>
-				<p>mobile: +33(1)7 62 68 91 59</p>
+				<p>mobile: +33(0)7 62 68 91 59</p>
 				<div class="pb-3">
 				    <a class="social-icons" href="https://www.instagram.com/karlmazlo/" target="_blank"><i class="fab fa-instagram mr-2 fa-2x"></i></a>
 				    <a class="social-icons" href="https://www.facebook.com/karlmazlo" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a>

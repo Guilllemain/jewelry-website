@@ -21,13 +21,13 @@
 				<div class="main-logo">
 					{{-- <a class="lang" href="/home">FR</a> --}}
 					<a class="logo" href="/creations">
-						<img src="images/logo.jpg">
+						<img src="images/KM_logo.png">
 					</a>
 					{{-- <a class="lang" href="">EN</a> --}}
 				</div>
 				<div class="h-bar"></div>
-				<div id="sub-logo" class="text-sub-logo">
-					<a class="sub-title" href="/creations">ARTIST JEWELER</a>
+				<div class="text-sub-logo">
+					<a class="sub-title" href="/creations">Artiste joaillier</a>
 				</div>
 			</div>
 		</div>

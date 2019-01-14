@@ -28,7 +28,7 @@
           <img style="width: 100%" src="{{ asset($exposition->image) }}">
         </div> --}}
         <div class="card-body">
-          <img style="width: 30%" src="{{ asset($exposition->image) }}">
+          <img class="exposition__image" src="{{ asset($exposition->image) }}">
           <p class="card-text">{!! $exposition->description !!}</p>
           @if($exposition->link)
             <a href="" class="btn btn-outline-info" target="_blank">En savoir plus</a>

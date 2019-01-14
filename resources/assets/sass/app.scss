@@ -1,3 +1,5 @@
+@import 'variables';
+@import 'mixins';
 @import 'welcome';
 @import 'menu';
 @import 'home';
@@ -16,6 +18,9 @@
 
 html, body {
     height:100%;
+}
+body {
+    font-size: $font-size-base;
 }
 a {
     color: black;

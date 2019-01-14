@@ -2,9 +2,6 @@
     <div class="nav-icon">
         <i class="fas fa-bars"></i>
     </div>
-    <div class="nav-title">
-        <a href="/">Karl Mazlo - Artiste Joaillier</a>
-    </div>
     <nav class="nav-items">
         <a class="nav-links" href="/creations">Créations</a>
         <a class="nav-links" href="/portrait">Portrait</a>
@@ -14,7 +11,7 @@
         <a class="nav-links" href="/contact">Contact</a>
     </nav>
     <div class="nav-right">
-        <div class="nav-text">
+        <div class="nav-title">
             <p>Karl Mazlo - Artiste Joaillier</p>
         </div>
         <a href="/">

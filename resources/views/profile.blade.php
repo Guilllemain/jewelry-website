@@ -1,12 +1,16 @@
 @extends('layouts.front')
 
 @section('content')
-	<div class="row">
-		<div class="col-md-4 col-xl-3 offset-xl-2 profile-image">
-			<img src="{{ $profile->image }}">
+	<div class="row mt-4">
+		<div class="col-md-4 col-lg-3 offset-lg-2">
+            <div class="profile-image">
+                <img src="{{ $profile->image }}">
+            </div>
 		</div>
-		<div class="col-md-8 col-xl-5" style="text-align: justify;">
-			{!! $profile->bio !!}
+		<div class="col-md-8 col-lg-5 profile-bio">
+            <div class="profile-bio">
+                {!! $profile->bio !!}
+            </div>
 		</div>
 	</div>
 @endsection

@@ -2,21 +2,33 @@
     width: 100%
 }
 .item-description {
-    margin-top: 3rem;
-    margin-right: 4rem;
+  margin-top: 3rem;
+  margin-right: 4rem;
+  @include screen(laptop) {
+    margin-top: 1rem;
+    margin-right: 3rem;
+    font-size: 0.85rem;
+  }
+  @include screen(tablet) {
+    margin-left: 1rem;
+  }
+  @include screen(phone) {
+    margin: .8rem;
+    font-size: 0.8rem;
+  }
 }
 .item-features {
-    font-weight: 300;
-    font-style: oblique;
-    padding-bottom: 0.1em;
-}
-.item-features p {
-  // line-height: 2rem;
+  font-weight: 300;
+  font-style: oblique;
+  margin-bottom: 0.1rem;
 }
 .item-description h1 {
-    font-size: 2em;
-    font-weight: 700;
-    padding-bottom: 0.5em;
+  font-size: 2em;
+  font-weight: 700;
+  padding-bottom: 0.5rem;
+  @include screen(laptop) {
+    font-size: 1.5em;
+  } 
 }
 .item-explication {
   padding-top: 0.5em;
@@ -75,6 +87,9 @@
 
 .product__images {
   display: flex;
+  @include screen(tablet) {
+    margin-right: 1rem;
+  }
 }
 
 .product__main-image {

@@ -1,7 +1,8 @@
 .main-image {
 	height: 100vh;
-	background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('/images/image5.jpg') no-repeat fixed;
+    background-repeat: no-repeat;
   	background-size: cover;
+    background-position: center;
 }
 
 .landing-page {
@@ -25,6 +26,10 @@
 	
 	& img {
 		width: 55%;
+
+        @include screen(tablet) {
+            width: 40%;
+        }
 	}
 }
 .text-sub-logo {
@@ -40,13 +45,19 @@
     animation-fill-mode: backwards;
     letter-spacing: .5rem;
     backface-visibility: hidden;
-    color: #464646;
+    color: #3c3c3b;
 	transition: all .2s;
 
     &:hover {
     	text-decoration: none;
     	color: black;
     	transform: scale(1.05);
+    }
+
+
+    @include screen(tablet) {
+        letter-spacing: .2rem;
+        font-size: 1rem;
     }
 }
 // .lang {
@@ -99,4 +110,13 @@
 	border-bottom: 1px solid #464646;
 	animation: makeVisible ease-in 1s 1s;
     animation-fill-mode: backwards;
+
+    @include screen(tablet) {
+        width: 15%;
+    }
+    
+    @include screen(phone) {
+        width: 30%;
+    }
 }
+

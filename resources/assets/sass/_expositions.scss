@@ -1,9 +1,3 @@
-.expositions {
-	// display: flex;
-	// align-items: flex-start;
-	// justify-content: flex-start;
-	// flex-wrap: wrap;
-}
 .card-expo {
 	width: 100%;
 	margin-right: 2%;
@@ -21,24 +15,35 @@
 
 .card-header {
 	padding: .5rem 1.25rem;
+	@include screen(laptop) {
+		padding: .4rem .75rem;
+    }
+    @include screen(phone) {
+		padding: .3rem .5rem;
+    }
 }
 
-.exposition__title {
-	font-size: 1rem;
+.exposition {
+	&__title {
+		font-size: .95rem;
 
-	&:hover {
-		text-decoration: none;
+		&:hover {
+			text-decoration: none;
+		}
+
+		@include screen(laptop) {
+	        font-size: .9rem;
+	    }
+	    @include screen(phone) {
+	        font-size: .85rem;
+	    }
 	}
-}
 
-@media only screen and (max-width: 1224px) {
-	.card-expo {
-		width: 48%;
-	}
-}
+	&__image {
+		width: 30%;
 
-@media only screen and (max-width: 768px) {
-	.card-expo {
-		width: 100%;
+		@include screen(phone) {
+	        width: 50%;
+	    }
 	}
 }

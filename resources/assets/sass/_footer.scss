@@ -3,6 +3,12 @@ footer {
     padding: .5rem;
     font-size: 0.8rem;
     margin-top: 3rem;
+    @include screen(laptop) {
+        margin-top: 2rem;
+    }
+    @include screen(phone) {
+        margin-top: 1.5rem;
+    }
 }
 .footer {
 	display: flex;

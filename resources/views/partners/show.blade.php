@@ -6,13 +6,15 @@
 @endsection
 
 @section('content')
-	<div class="row">
-		<div class="col-md-5 offset-md-1 partner__infos">
-			<h2>{{ $partner->title }}</h2>
-			<hr>
-			<div class="partner__description">{!! $partner->description !!}</div>
+	<div class="row partner__main">
+		<div class="col-md-6 col-xl-5 offset-xl-1">
+			<div class="partner__infos">
+				<h2>{{ $partner->title }}</h2>
+				<hr>
+				<div class="partner__description">{!! $partner->description !!}</div>
+			</div>
 		</div>
-		<div class="col-md-5">
+		<div class="col-md-6 col-xl-5">
 			@if($partner->video_local)
 				<video style="width: 100%" controls>
 					<source src="{{ asset($partner->video_local) }}" type="video/mp4">
@@ -24,9 +26,9 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-10 offset-md-1">
+		<div class="col-lg-10 offset-lg-1">
 			@if(count($partner->images) > 5)
-				<div class="lSAction">
+				<div class="lSAction slider-controls">
 					<a class="lSPrev">&#10094;</a>
 		        	<a class="lSNext">&#10095;</a>
 				</div>

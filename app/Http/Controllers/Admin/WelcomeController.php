@@ -5,19 +5,23 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\WelcomeImage;
 
 class WelcomeController extends Controller
 {
-    public function index()
+    public function edit(WelcomeImage $image)
     {
-        $image = WelcomeImage::first();
-
-        return view('admin.welcome', compact('image'));
+        return view('admin.welcome.edit', compact('image'));
     }
 
-    public function update(Request $request, Profile $profile)
+    public function update(Request $request, WelcomeImage $image)
     {
-
-        return redirect('/admin')->with('message', 'Ton portrait a bien été mis à jour');
+        if ($request->image) {
+            delete_file_from_disk($image->image_url);
+            $image->update([
+                'image_url' => 'storage/' . $request->image->store('background_image', 'public')
+            ]);
+        }
+        return redirect('/admin')->with('message', "L'image d'accueil a été modifiée");
     }
 }

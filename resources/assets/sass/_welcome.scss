@@ -1,8 +1,9 @@
 .main-image {
 	height: 100vh;
-    background-repeat: no-repeat;
-  	background-size: cover;
-    background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center;
 }
 
 .landing-page {
@@ -24,9 +25,11 @@
 		opacity: .7;
 	}
 	
-	& img {
+	&img {
 		width: 55%;
-
+        @include screen(tablet) {
+            width: 70%;
+        }
         @include screen(tablet) {
             width: 40%;
         }
@@ -54,51 +57,13 @@
     	transform: scale(1.05);
     }
 
-
+    @include screen(xl) {
+        letter-spacing: .8rem;
+        font-size: 1.6rem;
+    }
     @include screen(tablet) {
         letter-spacing: .2rem;
         font-size: 1rem;
-    }
-}
-// .lang {
-// 	opacity: 0;
-// 	font-size: 1.20em;
-// }
-
-@keyframes moveInBottom {
-    0% {
-        opacity: 0;
-        transform: translateY(8rem);
-    }
-    80% {
-        transform: translateY(-0.7rem);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes logo {
-    0% {
-        opacity: 0;
-        transform: scale(0);
-    }
-    80% {
-        transform: scale(1.1);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes makeVisible {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: .5;
     }
 }
 

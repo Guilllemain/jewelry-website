@@ -1,15 +1,19 @@
+//utilities
 @import 'variables';
 @import 'mixins';
-@import 'welcome';
-@import 'menu';
-@import 'home';
-@import 'gallery';
-@import 'product';
-@import 'partner';
+@import 'animations';
+
+//pages
 @import 'contact';
 @import 'footer';
-@import 'expositions';
+@import 'gallery';
+@import 'home';
+@import 'menu';
+@import 'news';
+@import 'partner';
+@import 'product';
 @import 'profile';
+@import 'welcome';
 
 @font-face {
     font-family: "Gill";
@@ -18,9 +22,14 @@
 
 html, body {
     height:100%;
+    font-family: $font-family;
 }
 body {
     font-size: $font-size-base;
+    color: #636b6f;
+    @include screen(xl) {
+        font-size: 130%;
+    }
 }
 a {
     color: black;
@@ -30,9 +39,6 @@ a:hover {
 }
 .main {
     min-height: 100%;
-    font-family: 'Gill', sans-serif;
-    // margin:0;
-    color: #636b6f;
     display: flex;
     flex-direction:column;
     justify-content: space-between;

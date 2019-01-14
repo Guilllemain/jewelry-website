@@ -16,7 +16,7 @@
     </head>
 
     <body>
-    	<div class="main-image" style="background:linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),url(@php echo $image->image_url @endphp);">
+    	<div class="main-image" style="background-image:linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),url({{ $image->image_url }});">
 			<div class="landing-page">
 				<div class="main-logo">
 					{{-- <a class="lang" href="/home">FR</a> --}}

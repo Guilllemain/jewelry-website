@@ -18,6 +18,8 @@
 	padding-right: 50px;
 	@include screen(phone) {
         margin-bottom: 2rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
     }
 }
 .contact-form h3 {
@@ -38,16 +40,4 @@
 }
 .social-icons:hover {
 	color: black;
-}
-
-@media only screen and (max-width: 1224px) {
-	.contact-form {
-		padding-right: 10px;
-	}
-}
-
-@media only screen and (max-width: 768px) {
-	.contact-form {
-		padding-right: 0;
-	}
 }

@@ -24,6 +24,10 @@
   height: 18.5rem;
   border-radius: 3%;
 
+  @include screen(xl) {
+    width: 22rem;
+    height: 22rem;
+  }
   @include screen(tablet) {
     width: 14rem;
     height: 14rem;
@@ -45,6 +49,10 @@
   opacity: 0;
   border-radius: 3%;
 
+  @include screen(xl) {
+    width: 22rem;
+    height: 22rem;
+  }
   @include screen(tablet) {
     width: 14rem;
     height: 14rem;

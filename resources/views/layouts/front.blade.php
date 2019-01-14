@@ -38,11 +38,4 @@
     
     @yield('javascript')
     @stack('script')
-    <script>
-        function showMenu() {
-            let items = document.querySelectorAll('.nav-links');
-            items.forEach(item => item.classList.toggle('nav-links-show'));
-        }
-        document.querySelector('.nav-icon').addEventListener('click', showMenu);
-    </script>
 </html>

@@ -5,6 +5,11 @@
 .partner__image {
 	max-width: 12rem;
 	max-height: 6rem;
+
+	@include screen(xl) {
+        max-width: 16rem;
+		max-height: 8rem;
+    }
 	@include screen(tablet) {
         max-width: 10rem;
 		max-height: 5rem;

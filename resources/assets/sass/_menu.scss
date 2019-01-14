@@ -1,8 +1,3 @@
-@font-face {
-    font-family: "Gill";
-    src: url("/font/170912085356Gill.woff") format('woff');
-}
-
 .nav {
     &-menu {
         text-transform: uppercase;
@@ -11,21 +6,26 @@
         display: flex;
         align-items: center;
 
+        @include screen(xl) {
+            font-size: 1.2rem;
+            margin: 1.5rem 5rem 3rem 5rem;
+        }
+
         @include screen(laptop) {
             font-size: .8rem;
-            margin: 1rem 1.5rem 1.5rem 1.5rem;
+            margin: 1rem 1.5rem;
         }
         @include screen(tablet) {
             position: relative;
             display: flex;
             align-items: flex-start;
             flex-direction: column;
+            margin-bottom: 2.5rem;
         }
     }   
     &-items {
         display: flex;
         @include screen(tablet) {
-            // padding-top: 1rem;
             align-items: flex-start;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -33,10 +33,13 @@
         }
     }
     &-logo {
-        height: 60px;
+        height: 3.5rem;
         padding-bottom: 0.5em;
         @include screen(tablet) {
             display: none;
+        }
+        @include screen(xl) {
+            height: 5rem;
         }
     }
     &-right {
@@ -44,22 +47,33 @@
         align-items: center;
     }
     &-links {
+        @include screen(tablet) {
+            color: white;
+            padding-top: .6rem;
+            opacity: .7;
+        }
         &:not(:last-child) {
             margin-right: 1.4rem;
             @include screen(laptop) {
                 margin-right: 1rem;
             }
-        }
-        @include screen(tablet) {
-            margin-top: .5rem;
+            @include screen(xl) {
+                margin-right: 3.5rem;
+            }
         }
         @include screen(phone) {
             margin-top: .2rem;
+        }
+        &-show {
+            display: block;
         }
     }
     &-title {
         justify-self: end; 
         margin-right: 2rem;
+        @include screen(xl) {
+            margin-right: 3rem;
+        }
         @include screen(laptop) {
             margin-right: 1.3rem;
         }
@@ -73,7 +87,7 @@
             margin: 0;
         }
     }
-    &-links, &-title {
+    &-title {
         text-decoration: none;
         color: #999;
         &:hover {
@@ -81,18 +95,17 @@
             color: black;
         }
     }
-    &-links {
-        @include screen(tablet) {
-            display: none;
-        }
-        &-show {
-            display: flex;
-        }
-    }
     &-icon {
         display: none;
         @include screen(tablet) {
-            display: flex;
+            display: block;
+            position: absolute;
+            z-index: 50;
+        }
+        &--active {
+            color: white;
+            position: fixed;
+            opacity: .7;
         }
     }
 }
@@ -100,4 +113,28 @@
 .link-active {
     color: black;
     font-weight: bold;
+}
+
+.nav-menu__mobile {
+
+    @include screen(tablet) {
+        display: none;
+        padding: 2rem 1.5rem;
+        flex-direction: column;
+        background: #00B4DB;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        box-shadow: 15px 0 30px 0 rgba(0,0,0,0.11), 5px 0 15px 0 rgba(0,0,0,0.08);
+        position: fixed;
+        z-index: 30;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        animation-fill-mode: forwards;
+    }
+
+    &-active {
+        display: flex;
+        animation: moveInLeft .2s ease-in;
+    }
 }

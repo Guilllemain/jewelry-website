@@ -50,7 +50,7 @@
 		<div class="col-md-6 col-xl-5">
 			<div class="contact__infos">
 				<p>Sur rendez-vous aux <a href="http://www.ateliersdeparis.com/">Ateliers de Paris</a> | 30 rue du Faubourg Saint Antoine - 75012 Paris</p>
-				<p>mail: <a href="mailto:mazlokarl@gmail.com">mazlokarl@gmail.com</a></p>
+				{{-- <p>mail: <a href="mailto:mazlokarl@gmail.com">mazlokarl@gmail.com</a></p> --}}
 				<p>mobile: +33(0)7 62 68 91 59</p>
 				<div class="pb-3">
 				    <a class="social-icons" href="https://www.instagram.com/karlmazlo/" target="_blank"><i class="fab fa-instagram mr-2 fa-2x"></i></a>

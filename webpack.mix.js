@@ -12,8 +12,6 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-mix.js('resources/assets/js/magnify.js', 'public/js')
-mix.js('resources/assets/js/magnify-mobile.js', 'public/js')
 mix.js('resources/assets/js/lity.js', 'public/js')
 mix.js('resources/assets/js/lightslider.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css')

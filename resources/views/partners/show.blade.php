@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-	<div class="row partner__main">
+	<div class="row partner">
 		<div class="col-md-6 col-xl-5 offset-xl-1">
 			<div class="partner__infos">
 				<h2>{{ $partner->title }}</h2>
@@ -33,9 +33,9 @@
 		        	<a class="lSNext">&#10095;</a>
 				</div>
 			@endif
-			<div id="responsive" class="partner-gallery">
+			<div id="responsive" class="partner__images">
 				@foreach($partner->images as $image)
-					<a class="img-gallery-partner" href="{{ asset($image->img_url) }}" data-lity>
+					<a class="partner__images-link" href="{{ asset($image->img_url) }}" data-lity>
 						<img src="{{ asset($image->img_thumbnail) }}">
 					</a>
 				@endforeach

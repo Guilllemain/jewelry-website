@@ -6,12 +6,10 @@
 
 @section('content')
 	<div class="row">
-		<div class="col-xl-10 offset-xl-1">
-			{{-- <div class="expositions"> --}}
-			  	@foreach($expositions as $exposition)
-					@include('partials.card-exposition')
-				@endforeach
-			{{-- </div> --}}
+		<div class="col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
+		  	@foreach($expositions as $exposition)
+				@include('partials.card-exposition')
+			@endforeach
 		</div>
 	</div>
 @endsection

@@ -1,71 +1,72 @@
-.main-image {
-	height: 100vh;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: cover;
-	background-position: center;
-}
-
-.landing-page {
-	display: flex;
-	height: 80%;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-}
-.main-logo a {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-.logo {
-	animation: logo 1s ease-in;
-
-	&:hover {
-		opacity: .7;
-	}
-	
-	&img {
-		width: 55%;
-        @include screen(tablet) {
-            width: 70%;
-        }
-        @include screen(tablet) {
-            width: 40%;
-        }
-	}
-}
-.text-sub-logo {
-	display: flex;
-	align-items:  center;
-	justify-content: center;
-	font-size: 1.1rem;
-}
-
-.sub-title {
-	text-transform: uppercase;
-    animation: moveInBottom 1s ease-in .5s;
-    animation-fill-mode: backwards;
-    letter-spacing: .5rem;
-    backface-visibility: hidden;
-    color: #3c3c3b;
-	transition: all .2s;
-
-    &:hover {
-    	text-decoration: none;
-    	color: black;
-    	transform: scale(1.05);
+.welcome{
+    &__background {
+    	height: 100vh;
+    	background-repeat: no-repeat;
+    	background-attachment: fixed;
+    	background-size: cover;
+    	background-position: center;
     }
-
-    @include screen(xl) {
-        letter-spacing: .8rem;
-        font-size: 1.6rem;
+    &__page {
+    	display: flex;
+    	height: 80%;
+    	align-items: center;
+    	justify-content: center;
+    	flex-direction: column;
     }
-    @include screen(tablet) {
-        letter-spacing: .2rem;
+    &__logo{
+    	display: flex;
+    	align-items: center;
+    	justify-content: center;
+    	animation: logo 1s ease-in;
+
+    	&:hover {
+    		opacity: .7;
+    	}
+    	
+        & img {
+    		width: 50%;
+            @include screen(xl) {
+                width: 70%;
+            }
+            @include screen(tablet) {
+                width: 40%;
+            }
+    	}
+    }
+        
+    &__text {
+        display: flex;
+        align-items:  center;
+        justify-content: center;
         font-size: 1rem;
+        
+        &-title {
+        	text-transform: uppercase;
+            animation: moveInBottom 1s ease-in .5s;
+            animation-fill-mode: backwards;
+            letter-spacing: .5rem;
+            backface-visibility: hidden;
+            color: #3c3c3b;
+        	transition: all .2s;
+
+            &:hover {
+            	text-decoration: none;
+            	color: black;
+            	transform: scale(1.05);
+            }
+
+            @include screen(xl) {
+                letter-spacing: .7rem;
+                font-size: 1.2rem;
+            }
+            @include screen(tablet) {
+                letter-spacing: .2rem;
+                font-size: .9rem;
+            }
+        }
     }
 }
+
 
 .h-bar {
 	width: 10%;

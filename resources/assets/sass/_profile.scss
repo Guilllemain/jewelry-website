@@ -1,24 +1,28 @@
-.profile-image {
-    @include screen(tablet) {
-        padding-left: 1rem;
+.profile {
+    &__image {
+        @include screen(tablet) {
+            padding-left: 1rem;
+        }
+        @include screen(phone) {
+            padding-left: .7rem;
+            padding-right: .7rem;
+            margin-bottom: 2rem;
+        }
+        & img {
+    	   width: 100%
+        }
     }
-    @include screen(phone) {
-        padding-left: .7rem;
-        padding-right: .7rem;
-        margin-bottom: 2rem;
-    }
-    & img {
-	   width: 100%
+
+    &__bio {
+        text-align: justify;
+        @include screen(tablet) {
+            padding-right: 1rem;
+        }
+        @include screen(laptop) {
+            padding-right: .7rem;
+            padding-left: .7rem;
+        }
     }
 }
 
-.profile-bio {
-    text-align: justify;
-    @include screen(tablet) {
-        padding-right: 1rem;
-    }
-    @include screen(laptop) {
-        padding-right: .7rem;
-        padding-left: .7rem;
-    }
-}
+

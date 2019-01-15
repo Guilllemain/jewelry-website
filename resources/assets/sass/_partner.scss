@@ -1,56 +1,68 @@
-.partner-gallery {
-	display: flex;
-	align-items: center;
-}
-.partner__image {
-	max-width: 12rem;
-	max-height: 6rem;
-
-	@include screen(xl) {
-        max-width: 16rem;
-		max-height: 8rem;
-    }
-	@include screen(tablet) {
-        max-width: 10rem;
-		max-height: 5rem;
-    }
-    @include screen(phone) {
-        max-width: 8rem;
-		max-height: 4rem;
-    }
-}
-.img-gallery-partner {
-	width: 20%;
-}
-.img-gallery-partner img {
-	width: 100%;
-}
+// list of partners logo
 .partners__list {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-wrap: wrap;
-	@include screen(tablet) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    @include screen(tablet) {
         margin-top: 1rem;
     }
-}
-.link-partner {
-	padding: 20px 30px 40px 30px;
-}
-.partner__infos {
-	margin-right: 2rem;
-	@include screen(laptop) {
-        margin-right: 1rem;
+    &-link {
+        padding: 20px 30px 40px 30px;
+
+        &-image {
+            max-width: 12rem;
+            max-height: 6rem;
+
+            @include screen(xl) {
+                max-width: 16rem;
+                max-height: 8rem;
+            }
+            @include screen(tablet) {
+                max-width: 10rem;
+                max-height: 5rem;
+            }
+            @include screen(phone) {
+                max-width: 8rem;
+                max-height: 4rem;
+            }
+        }
     }
 }
-.partner__main {
-	@include screen(tablet) {
+
+.partner {
+    @include screen(tablet) {
         align-items: center;
     }
+
+    hr {
+        width: 50%;
+        margin-left: 0;
+    }
+
+    &__infos {
+        margin-right: 2rem;
+        @include screen(laptop) {
+            margin-right: 1rem;
+        }
+    }
+
+    &__description {
+        text-align: justify;
+    }
+
+    &__images {
+        display: flex;
+        align-items: center;
+        &-link {
+        	width: 20%;
+            & img {
+        	   width: 100%;
+            }
+        }
+    }
 }
-.partner__description {
-	text-align: justify;
-}
+
 .slider-controls {
 	@include screen(tablet) {
         display: none;

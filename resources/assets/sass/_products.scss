@@ -1,0 +1,77 @@
+.products__list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; 
+  
+  &-item {
+    margin: 1.2rem;
+    @include screen(laptop) {
+      margin: .8rem;
+    }
+    @include screen(tablet) {
+      margin: .5rem;
+    }
+    @include screen(phone) {
+      margin: .2rem;
+    }
+
+    & a {
+      text-decoration: none;
+    }
+
+    & img {
+      position: absolute;
+      width: 18.5rem;
+      height: 18.5rem;
+      border-radius: 3%;
+
+      @include screen(xl) {
+        width: 22rem;
+        height: 22rem;
+      }
+      @include screen(tablet) {
+        width: 14rem;
+        height: 14rem;
+      }
+      @include screen(phone) {
+        width: 10rem;
+        height: 10rem;
+      }
+    }
+
+    &-name {
+      font-size: 1.5em;
+    }
+
+    &--text-wrapper {
+      position: relative;
+      width: 18.5rem;
+      height: 18.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      opacity: 0;
+      border-radius: 3%;
+
+      @include screen(xl) {
+        width: 22rem;
+        height: 22rem;
+      }
+      @include screen(tablet) {
+        width: 14rem;
+        height: 14rem;
+      }
+      @include screen(phone) {
+        width: 10rem;
+        height: 10rem;
+      }
+      &:hover {
+        transition: all 0.8s ease;
+        background: rgba(0, 0, 0, 0.6);
+        opacity: 1;
+      }
+    }
+  }
+}

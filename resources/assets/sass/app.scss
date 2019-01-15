@@ -6,12 +6,11 @@
 //pages
 @import 'contact';
 @import 'footer';
-@import 'gallery';
-@import 'home';
 @import 'menu';
 @import 'news';
 @import 'partner';
 @import 'product';
+@import 'products';
 @import 'profile';
 @import 'welcome';
 
@@ -28,7 +27,7 @@ body {
     font-size: $font-size-base;
     color: #636b6f;
     @include screen(xl) {
-        font-size: 130%;
+        font-size: 110%;
     }
 }
 a {

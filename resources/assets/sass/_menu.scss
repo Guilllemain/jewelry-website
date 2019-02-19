@@ -32,7 +32,7 @@
         &--active {
             color: white;
             position: fixed;
-            opacity: .7;
+            opacity: .8;
         }
     }
 
@@ -62,7 +62,7 @@
             @include screen(tablet) {
                 color: white;
                 padding-top: .6rem;
-                opacity: .7;
+                opacity: .8;
             }
             &:not(:last-child) {
                 margin-right: 1.4rem;

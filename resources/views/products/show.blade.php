@@ -25,9 +25,6 @@
                 <img class="cursor" src="{{ asset($image->img_url) }}" data-lity>
             </div>
           @endforeach
-
-          {{-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-          <a class="next" onclick="plusSlides(1)">&#10095;</a> --}}
         </div>
 
         <div class="product__images-thumbnails">
@@ -60,26 +57,19 @@
       }
 
       function showSlides(n) {
-        let i;
         let slides = document.querySelectorAll(".product__images-main");
         let dots = document.querySelectorAll(".product__images-thumbnails__item-img");
-        let thumbnail = document.querySelectorAll('.product__images-thumbnails__item');
+        let thumbnails = document.querySelectorAll('.product__images-thumbnails__item');
 
         if (n > slides.length) {slideIndex = 1}
         if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(" thumbnail-active", "");
-        }
+        slides.forEach(slide => slide.style.display = "none");
+        dots.forEach(dot => dot.classList.remove("thumbnail-active"));
+        
         slides[slideIndex-1].style.display = "flex";
-        dots[slideIndex-1].className += " thumbnail-active";
-        // captionText.innerHTML = dots[slideIndex-1].alt;
-        for (i = 0; i < thumbnail.length; i++) {
-          thumbnail[i].className = thumbnail[i].className.replace(" thumbnail-border", "");
-        }
-        thumbnail[slideIndex-1].className += " thumbnail-border";
+        dots[slideIndex-1].classList.add("thumbnail-active");
+        thumbnails.forEach(thumbnail => thumbnail.classList.remove("thumbnail-border"));
+        thumbnails[slideIndex-1].classList.add('thumbnail-border');
       }
     </script>
 @endsection

@@ -18,7 +18,7 @@
     	<div class="welcome__background" style="background-image:linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),url({{ $image->image_url }});">
 			<div class="welcome__page">
 				<a class="welcome__logo" href="/creations">
-					<img src="images/KM_logo.png">
+					<img src="images/KM_logo_new.png">
 				</a>
 				<div class="h-bar"></div>
 				<div class="welcome__text">

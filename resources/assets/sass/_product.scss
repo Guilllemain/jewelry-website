@@ -66,12 +66,12 @@
         position: relative;
         border: solid 1px #d2d2d2;
         display: flex;
-        margin-bottom: 10%;
+        margin-bottom: 6%;
         align-items: center;
         transition: all .3s;
 
         &:hover {
-          transform: scale(1.05);
+          transform: scale(1.03);
         }
 
         &-img {
@@ -94,11 +94,11 @@
   }
 }
 
-.thumbnail-border {
+.thumbnail-border, .product__images-thumbnails__item:hover {
   border: solid 1px #999;
 }
 
-.thumbnail-active:hover {
+.thumbnail-active, .product__images-thumbnails__item-img:hover {
   opacity: 1;
 }
 

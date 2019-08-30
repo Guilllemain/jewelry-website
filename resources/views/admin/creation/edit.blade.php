@@ -65,7 +65,9 @@
 			</div>
 			@foreach($product->images as $image)
 				<div class="img-wrap" id="image-{{ $image->id }}">
-					<span class="close" onclick="deleteImage({{$image->id}})">&times;</span>
+					<span class="delete-image" onclick="deleteImage({{$image->id}})">
+						<i class="far fa-trash-alt"></i>
+					</span>
 					<img class="img_thumbnail" src="{{ asset($image->img_url) }}">
 				</div>
 			@endforeach
@@ -81,40 +83,28 @@
 @section('javascript')
 	<script src="{{ asset('js/app.js') }}"></script>
 	<script>
-		function deleteImage(id) {
+		const deleteImage = id => {
+			if (!confirm('Es-tu sûr de vouloir supprimer cette image ?')) {
+				return
+			}
 			axios.delete('/admin/creation/image/' + id)
-			.then((response) => {
-				let imageDiv = document.getElementById("image-" + id);
-				imageDiv.parentNode.removeChild(imageDiv);               
-            },(error) => {
-              console.log(error)
-            });
-		}
-	</script>
-	<script src="//cdn.ckeditor.com/4.10.0/basic/ckeditor.js"></script>
-	<script>
+				.then(response => {
+						const imageDiv = document.querySelector("#image-" + id);
+						imageDiv.parentNode.removeChild(imageDiv);
+					})
+				.catch(error) {
+					console.log(error);
+				})
+			}
+
 		CKEDITOR.replace('description', {
 			height: 300
 		});
 		CKEDITOR.replace('features', {
 			height: 100
 		});
-	</script>
-	<script>
-		let file = document.getElementById("thumbnail");
-		file.onchange = () => {
-		    if(file.files.length > 0)
-		    {
-		      document.getElementById('thumbnail_name').innerHTML = file.files[0].name;
-		    }
-		};
-
-		let files = document.getElementById("product_img");
-		files.onchange = () => {
-		    if(files.files.length > 0)
-		    {
-		      document.getElementById('product_img_name').innerHTML = files.files.length + ' fichiers sélectionnés';
-		    }
-		};
+		
+		displayFileName('thumbnail', 'thumbnail_name')
+		displayFileName('product_img', 'product_img_name', true)
 	</script>
 @endsection

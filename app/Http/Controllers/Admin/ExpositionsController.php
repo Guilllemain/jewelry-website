@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Exposition;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ExpositionRequest;
+use App\ImageNews;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
-class AdminExpositionsController extends Controller
+class ExpositionsController extends Controller
 {
     public function index()
     {
@@ -23,15 +23,16 @@ class AdminExpositionsController extends Controller
 
     public function store(ExpositionRequest $request)
     {
-        Exposition::create([
+        $exposition = Exposition::create([
             'name' => $request->name,
             'title' => $request->title,
             'description' => $request->description,
-            'link' => $request->link ?: '',
-            'image' => 'storage/' . $request->image->store('expositions', 'public'),
+            'link' => $request->link,
             'date_start' => $request->date_start,
             'date_end' => $request->date_end
         ]);
+
+        $this->save_images($request->images, $exposition->id);
 
         return redirect('/admin/expositions')->with('message', 'Ta nouvelle exposition est en ligne');
     }
@@ -41,30 +42,19 @@ class AdminExpositionsController extends Controller
         return view('admin.expositions.edit', compact('exposition'));
     }
 
-    public function update(Exposition $exposition, Request $request)
+    public function update(Exposition $exposition, ExpositionRequest $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'title' => 'required',
-            'description' => 'required',
-            'date_start' => 'required',
-            'date_end' => 'required',
-        ]);
-
         $exposition->update([
             'name' => $request->name,
             'title' => $request->title,
             'description' => $request->description,
-            'link' => $request->link ?: '',
+            'link' => $request->link,
             'date_start' => $request->date_start,
             'date_end' => $request->date_end
         ]);
 
-        if ($request->image) {
-            delete_file_from_disk($exposition->image);
-            $exposition->update([
-                'image' => 'storage/' . $request->image->store('expositions', 'public')
-            ]);
+        if ($request->images) {
+            $this->save_images($request->images, $exposition->id);
         }
 
         return redirect('/admin/expositions')->with('message', 'Ton exposition a bien été modifiée');
@@ -76,5 +66,15 @@ class AdminExpositionsController extends Controller
         $exposition->delete();
 
         return redirect('/admin/expositions')->with('message', 'Ton exposition a bien été supprimée');
+    }
+
+    public function save_images($images, $id)
+    {
+        foreach ($images as $image) {
+            ImageNews::create([
+                'exposition_id' => $id,
+                'img_url' => resize_file($image, 'expositions/' . $id, 500, 500),
+            ]);
+        }
     }
 }

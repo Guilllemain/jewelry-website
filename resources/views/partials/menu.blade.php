@@ -33,7 +33,7 @@
         const menu = document.querySelector('.nav__menu');
         const menuIcon = document.querySelector('.nav__icon');
 
-        function showMenu() {
+        const showMenu = () => {
             menu.classList.toggle('nav__menu--active');
             menuIcon.classList.toggle('nav__icon--active');
             document.querySelectorAll('.nav__menu-link').forEach(node => node.classList.remove('link-active'));

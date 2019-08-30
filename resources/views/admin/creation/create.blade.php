@@ -71,7 +71,7 @@
 @endsection
 
 @section('javascript')
-	<script src="//cdn.ckeditor.com/4.10.0/basic/ckeditor.js"></script>
+	<script src="{{ asset('js/app.js') }}"></script>
 	<script>
 		CKEDITOR.replace('description', {
 			height: 300
@@ -79,22 +79,8 @@
 		CKEDITOR.replace('features', {
 			height: 100
 		});
-	</script>
-	<script>
-		let file = document.getElementById("thumbnail");
-		file.onchange = () => {
-		    if(file.files.length > 0)
-		    {
-		      document.getElementById('thumbnail_name').innerHTML = file.files[0].name;
-		    }
-		};
 
-		let files = document.getElementById("product_img");
-		files.onchange = () => {
-		    if(files.files.length > 0)
-		    {
-		      document.getElementById('product_img_name').innerHTML = files.files.length + ' fichiers sélectionnés';
-		    }
-		};
+		displayFileName('thumbnail', 'thumbnail_name')
+		displayFileName('product_img', 'product_img_name', true)
 	</script>
 @endsection

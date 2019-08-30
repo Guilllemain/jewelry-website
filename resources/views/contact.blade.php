@@ -50,7 +50,6 @@
 		<div class="col-md-6 col-xl-5">
 			<div class="contact__infos">
 				<p>Sur rendez-vous aux <a href="http://www.ateliersdeparis.com/">Ateliers de Paris</a> | 30 rue du Faubourg Saint Antoine - 75012 Paris</p>
-				{{-- <p>mail: <a href="mailto:mazlokarl@gmail.com">mazlokarl@gmail.com</a></p> --}}
 				<p>mobile: +33(0)7 62 68 91 59</p>
 				<div class="pb-3">
 				    <a class="social-icons" href="https://www.instagram.com/karlmazlo/" target="_blank"><i class="fab fa-instagram mr-2 fa-2x"></i></a>
@@ -60,8 +59,4 @@
 			<iframe class="contact__map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2625.3042192108874!2d2.371612!3d48.852409!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6c575aafb992caa6!2sAteliers+de+Paris!5e0!3m2!1sfr!2sfr!4v1534860655252" frameborder="0" allowfullscreen></iframe>
 		</div>
 	</div>
-@endsection
-
-@section('javascript')
-	
 @endsection

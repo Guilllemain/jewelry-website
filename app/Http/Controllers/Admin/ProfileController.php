@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Profile;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -25,7 +24,7 @@ class ProfileController extends Controller
         ]);
 
         if ($request->image) {
-            // Storage::disk('public')->delete($profile->image);
+            delete_file_from_disk($profile->image);
             $profile->update([
                 'image' => 'storage/' . $request->image->store('portrait', 'public')
             ]);

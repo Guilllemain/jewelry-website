@@ -23,37 +23,38 @@ Route::get('/creations/{product}', 'ProductsController@show');
 Route::get('/contact', 'ContactController@index');
 Route::post('/contact', 'ContactController@store');
 
-Route::group(['middleware' => ['auth']], function () {
-    Route::get('/admin', 'Admin\AdminController@index');
+Route::prefix('/admin')->namespace('Admin')->group(function () {
+    Route::get('/', 'HomeController@index');
 
-    Route::get('/admin/welcome/{image}', 'Admin\WelcomeController@edit');
-    Route::patch('/admin/welcome/{image}', 'Admin\WelcomeController@update');
+    Route::get('/welcome/{welcomeImage}', 'WelcomeController@edit');
+    Route::patch('/welcome/{welcomeImage}', 'WelcomeController@update');
 
-    Route::get('/admin/profile/{profile}', 'Admin\ProfileController@edit');
-    Route::patch('/admin/profile/edit/{profile}', 'Admin\ProfileController@update');
+    Route::get('/profile/{profile}', 'ProfileController@edit');
+    Route::patch('/profile/edit/{profile}', 'ProfileController@update');
 
-    Route::get('/admin/creation', 'Admin\CreationController@index');
-    Route::get('/admin/creation/create', 'Admin\CreationController@create');
-    Route::post('/admin/creation', 'Admin\CreationController@store');
-    Route::get('/admin/creation/edit/{product}', 'Admin\CreationController@edit');
-    Route::patch('/admin/creation/edit/{product}', 'Admin\CreationController@update');
-    Route::delete('/admin/creation/{product}', 'Admin\CreationController@destroy');
-    Route::delete('/admin/creation/image/{image}', 'Admin\ImageCreationsController@destroy');
+    Route::get('/creation', 'CreationController@index');
+    Route::get('/creation/create', 'CreationController@create');
+    Route::post('/creation', 'CreationController@store');
+    Route::get('/creation/edit/{product}', 'CreationController@edit');
+    Route::patch('/creation/edit/{product}', 'CreationController@update');
+    Route::delete('/creation/{product}', 'CreationController@destroy');
+    Route::delete('/creation/image/{image}', 'ImageCreationsController@destroy');
 
-    Route::get('/admin/partners', 'Admin\PartnersController@index');
-    Route::get('/admin/partners/create', 'Admin\PartnersController@create');
-    Route::post('/admin/partners', 'Admin\PartnersController@store');
-    Route::get('/admin/partners/edit/{partner}', 'Admin\PartnersController@edit');
-    Route::patch('/admin/partners/edit/{partner}', 'Admin\PartnersController@update');
-    Route::delete('/admin/partners/{partner}', 'Admin\PartnersController@destroy');
-    Route::delete('/admin/partners/image/{image}', 'Admin\ImagePartnersController@destroy');
+    Route::get('/partners', 'PartnersController@index');
+    Route::get('/partners/create', 'PartnersController@create');
+    Route::post('/partners', 'PartnersController@store');
+    Route::get('/partners/edit/{partner}', 'PartnersController@edit');
+    Route::patch('/partners/edit/{partner}', 'PartnersController@update');
+    Route::delete('/partners/{partner}', 'PartnersController@destroy');
+    Route::delete('/partners/image/{image}', 'ImagePartnersController@destroy');
 
-    Route::get('/admin/expositions', 'Admin\AdminExpositionsController@index');
-    Route::get('/admin/expositions/create', 'Admin\AdminExpositionsController@create');
-    Route::post('/admin/expositions', 'Admin\AdminExpositionsController@store');
-    Route::get('/admin/expositions/edit/{exposition}', 'Admin\AdminExpositionsController@edit');
-    Route::patch('/admin/expositions/edit/{exposition}', 'Admin\AdminExpositionsController@update');
-    Route::delete('/admin/expositions/{exposition}', 'Admin\AdminExpositionsController@destroy');
+    Route::get('/expositions', 'ExpositionsController@index');
+    Route::get('/expositions/create', 'ExpositionsController@create');
+    Route::post('/expositions', 'ExpositionsController@store');
+    Route::get('/expositions/edit/{exposition}', 'ExpositionsController@edit');
+    Route::patch('/expositions/edit/{exposition}', 'ExpositionsController@update');
+    Route::delete('/expositions/{exposition}', 'ExpositionsController@destroy');
+    Route::delete('/expositions/image/{image}', 'ImageNewsController@destroy');
 });
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

@@ -16,7 +16,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/admin.css') }}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="//cdn.ckeditor.com/4.10.0/basic/ckeditor.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/bulma.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
@@ -73,6 +73,11 @@
                     @if(session()->has('message'))
                         <div class="alert alert-success">
                             {{ session()->get('message') }}
+                        </div>
+                    @endif
+                    @if(session()->has('danger'))
+                        <div class="alert alert-danger">
+                            {{ session()->get('danger') }}
                         </div>
                     @endif
                     @yield('content')

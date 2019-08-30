@@ -7,8 +7,6 @@ use App\Http\Requests\ProductRequest;
 use App\ImageProduct;
 use App\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use Intervention\Image\Facades\Image;
 
 class CreationController extends Controller
 {
@@ -26,10 +24,11 @@ class CreationController extends Controller
 
     public function store(ProductRequest $request)
     {
-        // $resize = Image::make($file)->resize(300, 300)->encode('jpg');
-        // $hash = md5($resize->__toString());
-        // $resize->save(public_path($path));
-        // $url = "/" . $path;
+        $request->validate([
+            'name' => 'required',
+            'features' => 'required',
+            'description' => 'required',
+        ]);
 
         $product = Product::create([
             'name' => $request->name,
@@ -38,7 +37,7 @@ class CreationController extends Controller
             'thumbnail' => resize_file($request, 'products/thumbnails', 600, 600)
         ]);
 
-        $this->product_images($request, $product);
+        $this->save_images($request->product_img, $product->id);
 
         return redirect('/admin/creation')->with('message', 'Ta nouvelle création est en ligne');
     }
@@ -70,12 +69,7 @@ class CreationController extends Controller
         }
 
         if ($request->product_img) {
-            foreach ($product->images as $image) {
-                delete_file_from_disk($image->img_url);
-                delete_file_from_disk($image->img_thumbnail);
-                $image->delete();
-            }
-            $this->product_images($request, $product);
+            $this->save_images($request->product_img, $product->id);
         }
 
         return redirect('/admin/creation')->with('message', 'Ta création a bien été modifiée');
@@ -94,11 +88,11 @@ class CreationController extends Controller
         return redirect('/admin/creation')->with('message', 'Ta création a bien été supprimée');
     }
 
-    public function product_images($request, $product)
+    public function save_images($images, $id)
     {
-        foreach ($request->product_img as $image) {
+        foreach ($images as $image) {
             ImageProduct::create([
-                'product_id' => $product->id,
+                'product_id' => $id,
                 'img_url' => resize_file($image, 'products/images', 1200, 1200),
                 'img_thumbnail' => resize_file($image, 'products/images/thumbnails', 200, 200)
             ]);

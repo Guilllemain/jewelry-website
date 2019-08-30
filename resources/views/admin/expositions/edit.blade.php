@@ -17,25 +17,32 @@
 		  </div>
 		</div>
 		<div class="field">
-		  	<label class="label">Affiche</label>
-		  	<div class="control">
+			<label class="label">Images</label>
+			<div class="control">
 				<div class="file has-name">
-				  <label class="file-label">
-				    <input id="image" class="file-input" type="file" name="image">
-				    <span class="file-cta">
-				      <span class="file-icon">
-				        <i class="fas fa-upload"></i>
-				      </span>
-				      <span class="file-label">
-				        Choisis un fichier
-				      </span>
-				    </span>
-				    <span id="image_name" class="file-name">
-				    </span>
-				  </label>
+					<label class="file-label">
+						<input id="images" class="file-input" type="file" name="images[]" multiple>
+						<span class="file-cta">
+							<span class="file-icon">
+								<i class="fas fa-upload"></i>
+							</span>
+							<span class="file-label">
+								Choisis un ou plusieurs fichiers
+							</span>
+						</span>
+						<span id="image_name" class="file-name">
+						</span>
+					</label>
 				</div>
 			</div>
-			<img class="img_tumbnail" src="{{ asset($exposition->image) }}">
+			@foreach ($exposition->images as $image)
+			<div class="img-wrap" id="image-{{ $image->id }}">
+				<span class="delete-image" onclick="deleteImage({{$image->id}})">
+					<i class="far fa-trash-alt"></i>
+				</span>
+				<img class="img_thumbnail" src="{{ asset($image->img_url) }}">
+			</div>
+			@endforeach
 		</div>
 		<div class="field">
 		  	<label class="label">Description</label>
@@ -55,7 +62,7 @@
 				<div class="field">
 				  <label class="label">Début</label>
 				  <div class="control">
-				    <input name="date_start" class="input" type="date" value="{{ $exposition->date_start->format('Y-m-d') }}" required>
+				    <input name="date_start" class="input" type="date" value="@if($exposition->date_start) {{ $exposition->date_start->format('Y-m-d') }} @endif">
 				  </div>
 				</div>
 			</div>
@@ -63,7 +70,7 @@
 				<div class="field">
 				  <label class="label">Fin</label>
 				  <div class="control">
-				    <input name="date_end" class="input" type="date" value="{{ $exposition->date_end->format('Y-m-d') }}" required>
+				    <input name="date_end" class="input" type="date" value="@if($exposition->date_end) {{ $exposition->date_end->format('Y-m-d') }} @endif">
 				  </div>
 				</div>
 			</div>
@@ -77,17 +84,22 @@
 @endsection
 
 @section('javascript')
-	<script src="//cdn.ckeditor.com/4.10.0/basic/ckeditor.js"></script>
+	<script src="{{ asset('js/app.js') }}"></script>
 	<script>
 		CKEDITOR.replace('description');
-	</script>
-	<script>
-		let file = document.getElementById('image');
-		file.onchange = () => {
-		    if(file.files.length > 0)
-		    {
-		      document.getElementById('image_name').innerHTML = file.files[0].name;
-		    }
-		};
+		
+		const deleteImage = id => {
+			if (!confirm('Es-tu sûr de vouloir supprimer cette image ?')) {
+				return
+			}
+			axios.delete('/admin/expositions/image/' + id)
+			.then((response) => {
+				const imageDiv = document.querySelector("#image-" + id);
+				imageDiv.parentNode.removeChild(imageDiv);               
+			},(error) => {
+				console.log(error)
+			});
+		}
+		displayFileName('images', 'image_name', true)
 	</script>
 @endsection

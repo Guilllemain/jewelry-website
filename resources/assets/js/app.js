@@ -1,10 +1,3 @@
-
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 require('./bootstrap');
 
 // window.Vue = require('vue');
@@ -20,4 +13,16 @@ require('./bootstrap');
 // const app = new Vue({
 //     el: '#app'
 // });
-// 
+//
+window.displayFileName = (input, container, multiple = false) => {
+    const file = document.querySelector(`#${input}`);
+    file.onchange = () => {
+        if (file.files.length > 0) {
+            if (multiple) {
+                document.querySelector(`#${container}`).innerHTML = file.files.length + ' fichiers sélectionnés';
+            } else {
+                document.querySelector(`#${container}`).innerHTML = file.files[0].name;
+            }
+        }
+    };
+}

@@ -39,6 +39,3 @@
 	  </tbody>
 	</table>
 @endsection
-
-@section('javascript')
-@endsection

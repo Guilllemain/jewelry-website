@@ -27,9 +27,6 @@ class ExpositionRequest extends FormRequest
             'name' => 'required',
             'title' => 'required',
             'description' => 'required',
-            'image' => 'required|image|mimes:jpeg,jpg,png',
-            'date_start' => 'required|date',
-            'date_end' => 'required|date',
         ];
     }
 
@@ -39,9 +36,6 @@ class ExpositionRequest extends FormRequest
             'name.required' => 'Un nom est obligatoire',
             'title.required' => 'Un titre est obligatoire',
             'description.required'  => 'Une description est obligatoire',
-            'image.required'  => 'Une image est obligatoire',
-            'date_start.required'  => 'Une date de début est obligatoire',
-            'date_end.required'  => 'Une date de fin est obligatoire'
         ];
     }
 }

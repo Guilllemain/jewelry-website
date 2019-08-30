@@ -1,3 +1,6 @@
+//bootstrap
+@import 'bootstrap';
+
 .img_table {
 	max-width: 150px;
 	max-height: 100px;
@@ -21,19 +24,23 @@
   position: relative;
   display: inline-block;
 }
-.img-wrap .close {
+.img-wrap .delete-image {
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
   top: 2px;
   right: 2px;
   z-index: 100;
   background-color: #FFF;
   color: #000;
-  font-weight: bold;
   cursor: pointer;
   opacity: .2;
-  font-size: 22px;
+  font-size: 14px;
   border-radius: 50%;
 }
-.img-wrap:hover .close {
+.img-wrap:hover .delete-image {
   opacity: 1;
 }

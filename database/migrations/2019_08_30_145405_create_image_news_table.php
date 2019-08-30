@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateExpositionsTable extends Migration
+class CreateImageNewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateExpositionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('expositions', function (Blueprint $table) {
+        Schema::create('image_news', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('title');
-            $table->text('description');
-            $table->string('link')->nullable();
-            $table->date('date_start')->nullable();
-            $table->date('date_end')->nullable();
+
+            $table->integer('exposition_id')->unsigned();
+            $table->foreign('exposition_id')->references('id')->on('expositions')->onDelete('cascade');
+
+            $table->string('img_url');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ class CreateExpositionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('expositions');
+        Schema::dropIfExists('image_news');
     }
 }

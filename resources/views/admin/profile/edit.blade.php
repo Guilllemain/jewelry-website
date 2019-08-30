@@ -40,19 +40,12 @@
 @endsection
 
 @section('javascript')
-	<script src="//cdn.ckeditor.com/4.10.0/basic/ckeditor.js"></script>
+	<script src="{{ asset('js/app.js') }}"></script>
 	<script>
 		CKEDITOR.replace('bio', {
 			height: 400
 		});
-	</script>
-	<script>
-		let file = document.getElementById('image');
-		file.onchange = () => {
-		    if(file.files.length > 0)
-		    {
-		      document.getElementById('image_name').innerHTML = file.files[0].name;
-		    }
-		};
+		
+		displayFileName('image', 'image_name')
 	</script>
 @endsection

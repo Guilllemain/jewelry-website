@@ -16,22 +16,22 @@
 		  </div>
 		</div>
 		<div class="field">
-		  	<label class="label">Affiche</label>
-		  	<div class="control">
+			<label class="label">Images</label>
+			<div class="control">
 				<div class="file has-name">
-				  <label class="file-label">
-				    <input id="image" class="file-input" type="file" name="image">
-				    <span class="file-cta">
-				      <span class="file-icon">
-				        <i class="fas fa-upload"></i>
-				      </span>
-				      <span class="file-label">
-				        Choisis un fichier
-				      </span>
-				    </span>
-				    <span id="image_name" class="file-name">
-				    </span>
-				  </label>
+					<label class="file-label">
+						<input id="images" class="file-input" type="file" name="images[]" multiple>
+						<span class="file-cta">
+							<span class="file-icon">
+								<i class="fas fa-upload"></i>
+							</span>
+							<span class="file-label">
+								Choisis un ou plusieurs fichiers
+							</span>
+						</span>
+						<span id="image_name" class="file-name">
+						</span>
+					</label>
 				</div>
 			</div>
 		</div>
@@ -53,7 +53,7 @@
 				<div class="field">
 				  <label class="label">Début</label>
 				  <div class="control">
-				    <input name="date_start" class="input" type="date" value="{{ old('date_start') }}" required>
+				    <input name="date_start" class="input" type="date" value="{{ old('date_start') }}">
 				  </div>
 				</div>
 			</div>
@@ -61,7 +61,7 @@
 				<div class="field">
 				  <label class="label">Fin</label>
 				  <div class="control">
-				    <input name="date_end" class="input" type="date" value="{{ old('date_end') }}" required>
+				    <input name="date_end" class="input" type="date" value="{{ old('date_end') }}">
 				  </div>
 				</div>
 			</div>
@@ -75,17 +75,10 @@
 @endsection
 
 @section('javascript')
-<script src="//cdn.ckeditor.com/4.10.0/basic/ckeditor.js"></script>
+	<script src="{{ asset('js/app.js') }}"></script>
 	<script>
 		CKEDITOR.replace('description');
-	</script>
-	<script>
-		let file = document.getElementById('image');
-		file.onchange = () => {
-		    if(file.files.length > 0)
-		    {
-		      document.getElementById('image_name').innerHTML = file.files[0].name;
-		    }
-		};
+
+		displayFileName('images', 'image_name', true)
 	</script>
 @endsection

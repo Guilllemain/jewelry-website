@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-	<form method="POST" action="/admin/welcome/{{ $image->id }}" enctype="multipart/form-data">
+	<form method="POST" action="/admin/welcome/{{ $welcomeImage->id }}" enctype="multipart/form-data">
 		@csrf
 		@method('PATCH')
 		<div class="field">
@@ -9,7 +9,7 @@
 		  	<div class="control">
 				<div class="file has-name">
 				  <label class="file-label">
-				    <input class="file-input" type="file" name="image">
+				    <input id="image" class="file-input" type="file" name="image">
 				    <span class="file-cta">
 				      <span class="file-icon">
 				        <i class="fas fa-upload"></i>
@@ -23,7 +23,7 @@
 				  </label>
 				</div>
 			</div>
-			<img class="img_tumbnail" src="{{ asset($image->image_url) }}">
+			<img class="img_tumbnail" src="{{ asset($welcomeImage->image_url) }}">
 		</div>
 		<div class="field">
 		  <div class="control">
@@ -31,4 +31,11 @@
 		  </div>
 		</div>
 	</form>
+@endsection
+
+@section('javascript')
+	<script src="{{ asset('js/app.js') }}"></script>
+	<script>
+		displayFileName('image', 'image_name')
+	</script>
 @endsection

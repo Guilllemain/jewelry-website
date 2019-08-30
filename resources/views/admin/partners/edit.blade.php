@@ -115,36 +115,11 @@
               console.log(error)
             });
 		}
-	</script>
-	<script src="//cdn.ckeditor.com/4.10.0/basic/ckeditor.js"></script>
-	<script>
-		CKEDITOR.replace('description');
-	</script>
-	<script>
-		let file = document.getElementById('logo');
-		let files = document.getElementById("partner_img");
-		let video = document.getElementById("partner_video");
 
-		file.onchange = () => {
-		    if(file.files.length > 0)
-		    {
-		      document.getElementById('logo_name').innerHTML = file.files[0].name;
-		    }
-		};
-
-		files.onchange = () => {
-		    if(files.files.length > 0)
-		    {
-		      document.getElementById('partner_img_name').innerHTML = files.files.length + ' fichiers sélectionnés';
-		    }
-		};
-
-		video.onchange = () => {
-		    if(video.files.length > 0)
-		    {
-		      document.getElementById('partner_video_name').innerHTML = video.files[0].name;
-		    }
-		};
-
+		CKEDITOR.replace('description')
+		
+		displayFileName('logo', 'logo_name')
+		displayFileName('partner_video', 'partner_video_name')
+		displayFileName('partner_img', 'partner_img_name', true)
 	</script>
 @endsection

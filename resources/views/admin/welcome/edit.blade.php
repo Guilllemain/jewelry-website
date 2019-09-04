@@ -5,7 +5,7 @@
 		@csrf
 		@method('PATCH')
 		<div class="field">
-		  	<label class="label">Image</label>
+		  	<label class="label">Image<span class="text-danger">&lowast;</span></label>
 		  	<div class="control">
 				<div class="file has-name">
 				  <label class="file-label">

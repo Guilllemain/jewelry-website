@@ -4,7 +4,7 @@
 	<form method="POST" action="/admin/partners" enctype="multipart/form-data">
 		@csrf
 		<div class="field">
-		  <label class="label">Nom</label>
+		  <label class="label">Nom<span class="text-danger">&lowast;</span></label>
 		  <div class="control">
 		    <input name="name" class="input" type="text" value="{{ old('name') }}" required>
 		  </div>
@@ -30,13 +30,13 @@
 			</div>
 		</div>
 		<div class="field">
-		  	<label class="label">Titre</label>
+		  	<label class="label">Titre<span class="text-danger">&lowast;</span></label>
 		  	<div class="control">
 			    <input name="title" class="input" type="text" value="{{ old('title') }}" required>
 			</div>
 		</div>
 		<div class="field">
-		  	<label class="label">Description</label>
+		  	<label class="label">Description<span class="text-danger">&lowast;</span></label>
 		  	<div class="control">
 				<textarea name="description" class="textarea" rows="10" required>{{ old('description') }}</textarea>
 			</div>

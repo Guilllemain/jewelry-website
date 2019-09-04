@@ -26,9 +26,11 @@
             <div class="modal-body">
                 {!! $exposition->description !!}
             </div>
-            <div class="d-flex flex-wrap justify-content-between m-3">
+            <div class="d-flex flex-wrap align-items-center justify-content-between m-3">
                 @foreach ($exposition->images as $image)
-                    <img class="news__image" src="{{ asset($image->img_url) }}">
+                    <div class="news__image">
+                        <img class="w-100" src="{{ asset($image->img_url) }}">
+                    </div>
                 @endforeach
             </div>
             <div class="modal-footer">

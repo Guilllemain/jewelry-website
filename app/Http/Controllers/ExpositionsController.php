@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Exposition;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 class ExpositionsController extends Controller
 {

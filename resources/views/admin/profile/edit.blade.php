@@ -5,7 +5,7 @@
 		@csrf
 		@method('PATCH')
 		<div class="field">
-		  	<label class="label">Image</label>
+		  	<label class="label">Image<span class="text-danger">&lowast;</span></label>
 		  	<div class="control">
 				<div class="file has-name">
 				  <label class="file-label">
@@ -26,7 +26,7 @@
 			<img class="img_tumbnail" src="{{ asset($profile->image) }}">
 		</div>
 		<div class="field">
-		  	<label class="label">Biographie</label>
+		  	<label class="label">Biographie<span class="text-danger">&lowast;</span></label>
 		  	<div class="control">
 				<textarea id="bio" name="bio" class="textarea" rows="10" required>{{ $profile->bio }}</textarea>
 			</div>

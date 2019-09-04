@@ -5,7 +5,7 @@
 		@csrf
 		@method('PATCH')
 		<div class="field">
-		  <label class="label">Nom</label>
+		  <label class="label">Nom<span class="text-danger">&lowast;</span></label>
 		  <div class="control">
 		    <input name="name" class="input" type="text" value="{{ $partner->name }}" required>
 		  </div>
@@ -34,13 +34,13 @@
 			@endif
 		</div>
 		<div class="field">
-		  	<label class="label">Titre</label>
+		  	<label class="label">Titre<span class="text-danger">&lowast;</span></label>
 		  	<div class="control">
 			    <input name="title" class="input" type="text" value="{{ $partner->title }}" required>
 			</div>
 		</div>
 		<div class="field">
-		  	<label class="label">Description</label>
+		  	<label class="label">Description<span class="text-danger">&lowast;</span></label>
 		  	<div class="control">
 				<textarea name="description" class="textarea" rows="10" required>{{ $partner->description }}</textarea>
 			</div>
@@ -90,7 +90,9 @@
 			</div>
 			@foreach($partner->images as $image)
 			<div class="img-wrap" id="image-{{ $image->id }}">
-				<span class="close" onclick="deleteImage({{$image->id}})">&times;</span>
+				<span class="delete-image" onclick="deleteImage('/admin/partners/image/', {{$image->id}})">
+					<i class="far fa-trash-alt"></i>
+				</span>
 				<img class="img_thumbnail" src="{{ asset($image->img_url) }}">
 			</div>
 			@endforeach
@@ -106,16 +108,6 @@
 @section('javascript')
 	<script src="{{ asset('js/app.js') }}"></script>
 	<script>
-		function deleteImage(id) {
-			axios.delete('/admin/partners/image/' + id)
-			.then((response) => {
-				let imageDiv = document.getElementById("image-" + id);
-				imageDiv.parentNode.removeChild(imageDiv);               
-            },(error) => {
-              console.log(error)
-            });
-		}
-
 		CKEDITOR.replace('description')
 		
 		displayFileName('logo', 'logo_name')

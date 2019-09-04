@@ -6,7 +6,6 @@ use App\Exposition;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ExpositionRequest;
 use App\ImageNews;
-use Illuminate\Http\Request;
 
 class ExpositionsController extends Controller
 {
@@ -31,8 +30,10 @@ class ExpositionsController extends Controller
             'date_start' => $request->date_start,
             'date_end' => $request->date_end
         ]);
-
-        $this->save_images($request->images, $exposition->id);
+        
+        if ($request->images) {
+            $this->save_images($request->images, $exposition->id);
+        }
 
         return redirect('/admin/expositions')->with('message', 'Ta nouvelle exposition est en ligne');
     }

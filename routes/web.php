@@ -23,7 +23,7 @@ Route::get('/creations/{product}', 'ProductsController@show');
 Route::get('/contact', 'ContactController@index');
 Route::post('/contact', 'ContactController@store');
 
-Route::prefix('/admin')->namespace('Admin')->group(function () {
+Route::prefix('/admin')->namespace('Admin')->middleware('auth')->group(function () {
     Route::get('/', 'HomeController@index');
 
     Route::get('/welcome/{welcomeImage}', 'WelcomeController@edit');

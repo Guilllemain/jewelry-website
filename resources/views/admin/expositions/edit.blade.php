@@ -1,19 +1,19 @@
 @extends('layouts.admin')
 
 @section('content')
-	<form method="POST" action="/admin/expositions/edit/{{ $exposition->id }}" enctype="multipart/form-data">
+	<form method="POST" action="/admin/expositions/edit/{{$exposition->id}}" enctype="multipart/form-data">
 		@csrf
 		@method('PATCH')
 		<div class="field">
-		  <label class="label">Nom</label>
+		  <label class="label">Nom<span class="text-danger">&lowast;</span></label>
 		  <div class="control">
-		    <input name="name" class="input" type="text" value="{{ $exposition->name }}" required>
+		    <input name="name" class="input" type="text" value="{{$exposition->name}}" required>
 		  </div>
 		</div>
 		<div class="field">
-		  <label class="label">Titre</label>
+		  <label class="label">Titre<span class="text-danger">&lowast;</span></label>
 		  <div class="control">
-		    <input name="title" class="input" type="text" value="{{ $exposition->title }}" required>
+		    <input name="title" class="input" type="text" value="{{$exposition->title}}" required>
 		  </div>
 		</div>
 		<div class="field">
@@ -36,25 +36,25 @@
 				</div>
 			</div>
 			@foreach ($exposition->images as $image)
-			<div class="img-wrap" id="image-{{ $image->id }}">
-				<span class="delete-image" onclick="deleteImage({{$image->id}})">
+			<div class="img-wrap" id="image-{{$image->id}}">
+				<span class="delete-image" onclick="deleteImage('/admin/expositions/image/', {{$image->id}})">
 					<i class="far fa-trash-alt"></i>
 				</span>
-				<img class="img_thumbnail" src="{{ asset($image->img_url) }}">
+				<img class="img_thumbnail" src="{{asset($image->img_url)}}">
 			</div>
 			@endforeach
 		</div>
 		<div class="field">
-		  	<label class="label">Description</label>
+		  	<label class="label">Description<span class="text-danger">&lowast;</span></label>
 		  	<div class="control">
-				<textarea name="description" class="textarea" rows="10" required>{{ $exposition->description }}</textarea>
+				<textarea name="description" class="textarea" rows="10" required>{{$exposition->description}}</textarea>
 			</div>
 		</div>
 		<div class="field">
 		  <label class="label">Lien</label>
-		  <p class="help">Pas obligatoire. Mettre le lien avec http</p>
+		  <p class="help">Mettre le lien avec http</p>
 		  <div class="control">
-		    <input name="link" class="input" type="text" value="@if($exposition->link) {{ $exposition->link }} @endif">
+		    <input name="link" class="input" type="text" value="{{$exposition->link}}">
 		  </div>
 		</div>
 		<div class="columns">
@@ -62,7 +62,7 @@
 				<div class="field">
 				  <label class="label">Début</label>
 				  <div class="control">
-				    <input name="date_start" class="input" type="date" value="@if($exposition->date_start) {{ $exposition->date_start->format('Y-m-d') }} @endif">
+				    <input name="date_start" class="input" type="date" value="{{optional($exposition->date_start)->format('Y-m-d')}}">
 				  </div>
 				</div>
 			</div>
@@ -70,7 +70,7 @@
 				<div class="field">
 				  <label class="label">Fin</label>
 				  <div class="control">
-				    <input name="date_end" class="input" type="date" value="@if($exposition->date_end) {{ $exposition->date_end->format('Y-m-d') }} @endif">
+				    <input name="date_end" class="input" type="date" value="{{optional($exposition->date_end)->format('Y-m-d')}}">
 				  </div>
 				</div>
 			</div>
@@ -88,18 +88,6 @@
 	<script>
 		CKEDITOR.replace('description');
 		
-		const deleteImage = id => {
-			if (!confirm('Es-tu sûr de vouloir supprimer cette image ?')) {
-				return
-			}
-			axios.delete('/admin/expositions/image/' + id)
-			.then((response) => {
-				const imageDiv = document.querySelector("#image-" + id);
-				imageDiv.parentNode.removeChild(imageDiv);               
-			},(error) => {
-				console.log(error)
-			});
-		}
 		displayFileName('images', 'image_name', true)
 	</script>
 @endsection

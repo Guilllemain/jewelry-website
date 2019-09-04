@@ -26,3 +26,12 @@ window.displayFileName = (input, container, multiple = false) => {
         }
     };
 }
+
+window.deleteImage = (url, id) => {
+    if (!confirm('Es-tu sûr de vouloir supprimer cette image ?')) {
+        return
+    }
+    axios.delete(url + id)
+        .then(response => document.querySelector("#image-" + id).parentNode.removeChild(document.querySelector("#image-" + id)))
+        .catch(error => console.log(error))
+}

@@ -4,13 +4,13 @@
 	<form method="POST" action="/admin/expositions" enctype="multipart/form-data">
 		@csrf
 		<div class="field">
-		  <label class="label">Nom</label>
+		  <label class="label">Nom<span class="text-danger">&lowast;</span></label>
 		  <div class="control">
 		    <input name="name" class="input" type="text" value="{{ old('name') }}" required>
 		  </div>
 		</div>
 		<div class="field">
-		  <label class="label">Titre</label>
+		  <label class="label">Titre<span class="text-danger">&lowast;</span></label>
 		  <div class="control">
 		    <input name="title" class="input" type="text" value="{{ old('title') }}" required>
 		  </div>
@@ -36,14 +36,14 @@
 			</div>
 		</div>
 		<div class="field">
-		  	<label class="label">Description</label>
+		  	<label class="label">Description<span class="text-danger">&lowast;</span></label>
 		  	<div class="control">
 				<textarea name="description" class="textarea" rows="10" required>{{ old('description') }}</textarea>
 			</div>
 		</div>
 		<div class="field">
 		  <label class="label">Lien</label>
-		  <p class="help">Pas obligatoire. Mettre le lien avec http</p>
+		  <p class="help">Mettre le lien avec http</p>
 		  <div class="control">
 		    <input name="link" class="input" type="text" value="{{ old('link') }}">
 		  </div>

@@ -49,14 +49,14 @@
 		</div>
 		<div class="col-md-6 col-xl-5">
 			<div class="contact__infos">
-				<p>Sur rendez-vous aux <a href="http://www.ateliersdeparis.com/">Ateliers de Paris</a> | 30 rue du Faubourg Saint Antoine - 75012 Paris</p>
+				<p>Sur rendez-vous | La Cité Artisananle de la Villa du Lavoir - 70 René Boulanger - 75010 Paris</p>
 				<p>mobile: +33(0)7 62 68 91 59</p>
 				<div class="pb-3">
 				    <a class="social-icons" href="https://www.instagram.com/karlmazlo/" target="_blank"><i class="fab fa-instagram mr-2 fa-2x"></i></a>
 				    <a class="social-icons" href="https://www.facebook.com/karlmazlo" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a>
 				</div>
 			</div>
-			<iframe class="contact__map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2625.3042192108874!2d2.371612!3d48.852409!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6c575aafb992caa6!2sAteliers+de+Paris!5e0!3m2!1sfr!2sfr!4v1534860655252" frameborder="0" allowfullscreen></iframe>
+			<iframe class="contact__map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1312.2104311615324!2d2.357033976130403!3d48.86925299479675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e0e3825fbf9%3A0x2afff28e2bdf12c5!2s70%20Rue%20Ren%C3%A9%20Boulanger%2C%2075010%20Paris!5e0!3m2!1sfr!2sfr!4v1567589433582!5m2!1sfr!2sfr"" frameborder="0" allowfullscreen></iframe>
 		</div>
 	</div>
 @endsection

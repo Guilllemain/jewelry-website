@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-	<div class="mx-8 my-5 d-flex justify-content-between flex-wrap">
+	<div class="cards-list d-flex justify-content-between flex-wrap align-items-start">
 	  	@foreach($expositions as $exposition)
 			@include('partials.card-exposition')
 		@endforeach

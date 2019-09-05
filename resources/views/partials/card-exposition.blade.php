@@ -1,11 +1,11 @@
-<div class="card mb-4" style="width: 30%;">
+<div class="card mb-4 card-expo">
 
         <div class="card-header">
             <h5 class="card-title text-body">{{ $exposition->title }}</h5>
             <h6 class="card-subtitle text-black-50">{{ $exposition->name }}</h6>
         </div>
-    <div class="card-body d-flex align-items-start flex-column">
-        <p class="card-text font-s">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam quia itaque dolorum voluptatum quibusdam in eveniet impedit aperiam ipsam nihil accusamus necessitatibus obcaecati, deleniti culpa quidem aliquam veritatis nam libero!</p>
+    <div class="card-body d-flex flex-column">
+        <img src="{{$exposition->images->first()['img_url']}}" class="card-img-top mb-3" alt="...">
         <button type="button" class="mt-auto btn btn-outline-info" data-toggle="modal" data-target="#exposition-{{$exposition->id}}">
             En savoir plus
         </button>

@@ -7,15 +7,15 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <div class="products__list">
+            <div class="products-list">
                 @foreach($products as $product)
-                    <div class="products__list-item">
+                    <div class="products-list__item">
                         <a href="/creations/{{ $product->id }}">
-                            <figure>
-                                <img src="{{ $product->thumbnail }}" alt="{{ $product->name }}">
-                                <div class="products__list-item--text-wrapper">
+                            <figure class="products-list__img-container">
+                                <img class="products-list__img" src="{{ $product->thumbnail }}" alt="{{ $product->name }}">
+                                <figcaption class="products-list__caption">
                                     <span>{{ $product->name }}</span>
-                                </div>
+                                </figcaption>
                             </figure>
                         </a>
                     </div>

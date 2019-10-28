@@ -1,7 +1,6 @@
 @extends('layouts.front')
 
 @section('css')
-    {{-- <link rel="stylesheet" href="/css/magnify.css"> --}}
     <link rel="stylesheet" type="text/css" href="/css/lity.css">
 @endsection
 
@@ -9,7 +8,7 @@
   <div class="row">
     <div class="col-lg-5 offset-lg-1 col-md-6">
         <div class="product__infos">
-            <h1>{{ $product->name }}</h1>
+            <h1 class="product__title">{{ $product->name }}</h1>
             <div class="product__features">{!! $product->features !!}</div>
             <hr>
             <div class="product__description">{!! $product->description !!}</div>
@@ -17,20 +16,20 @@
     </div>
     
     <div class="col-md-6 col-lg-5">
-      <div class="product__images">
+      <div class="product-images">
         
-        <div class="product__images__list">
+        <div class="product-images__list">
           @foreach($product->images as $image)
-            <div class="product__images-main">
+            <div class="product-images__main">
                 <img class="cursor" src="{{ asset($image->img_url) }}" data-lity>
             </div>
           @endforeach
         </div>
 
-        <div class="product__images-thumbnails">
+        <div class="product-thumbnails">
           @foreach($product->images as $number => $image)
-            <div class="product__images-thumbnails__item cursor" onclick="currentSlide({{ $number+1 }})">
-              <img class="product__images-thumbnails__item-img" src="{{ asset($image->img_thumbnail) }}" alt="{{ $product->name }}">
+            <div class="product-thumbnails__item cursor" onclick="currentSlide({{ $number+1 }})">
+              <img class="product-thumbnails__img" src="{{ asset($image->img_thumbnail) }}" alt="{{ $product->name }}">
             </div>
           @endforeach
         </div>
@@ -57,9 +56,9 @@
       }
 
       function showSlides(n) {
-        let slides = document.querySelectorAll(".product__images-main");
-        let dots = document.querySelectorAll(".product__images-thumbnails__item-img");
-        let thumbnails = document.querySelectorAll('.product__images-thumbnails__item');
+        const slides = document.querySelectorAll(".product-images__main");
+        const dots = document.querySelectorAll(".product-thumbnails__img");
+        const thumbnails = document.querySelectorAll('.product-thumbnails__item');
 
         if (n > slides.length) {slideIndex = 1}
         if (n < 1) {slideIndex = slides.length}

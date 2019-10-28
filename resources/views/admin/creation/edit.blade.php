@@ -24,7 +24,6 @@
 	</div>
 	<div class="field">
 		<label class="label">Vignette<span class="text-danger">&lowast;</span></label>
-		<p class="help">Taille minimum : 600 x 600 px</p>
 		<div class="control">
 			<div class="file has-name">
 				<label class="file-label">

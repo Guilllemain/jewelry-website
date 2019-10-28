@@ -12454,7 +12454,6 @@ footer {
 }
 
 .products__list-item {
-  position: relative;
   margin: 1.2rem;
 }
 
@@ -12480,13 +12479,17 @@ footer {
   text-decoration: none;
 }
 
+.products__list-item figure {
+  position: relative;
+}
+
 .products__list-item img {
   width: 100%;
   height: 100%;
   border-radius: 3%;
 }
 
-.products__list-item-name {
+.products__list-item span {
   font-size: 1.5em;
 }
 
